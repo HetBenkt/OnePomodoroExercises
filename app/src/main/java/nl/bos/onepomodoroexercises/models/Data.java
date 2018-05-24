@@ -1,6 +1,6 @@
 package nl.bos.onepomodoroexercises.models;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @lombok.Data
@@ -9,9 +9,9 @@ public class Data {
     private List<Day> days;
     private List<Exercise> exercises;
 
-    public Day getCurrentDay(LocalDate today) {
+    public Day getCurrentDay(String today) {
         for (Day day: days) {
-            if(day.getDate().equals(today.toString()))
+            if(day.getDate().equals(today))
                 return day;
         }
         return null;
