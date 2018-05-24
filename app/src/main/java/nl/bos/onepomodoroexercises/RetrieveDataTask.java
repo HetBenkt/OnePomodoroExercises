@@ -18,18 +18,16 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.MessageFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
+class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
     private final static String LOG_TAG = "RetrieveDataTask";
-    private ArrayList<Exercise> exercises;
-    private ExerciseAdapter adapter;
-    private Context context;
+    private final List<Exercise> exercises;
+    private final ExerciseAdapter adapter;
+    private final Context context;
 
-    public RetrieveDataTask(ArrayList<Exercise> exercises, ExerciseAdapter adapter, Context context) {
+    public RetrieveDataTask(List<Exercise> exercises, ExerciseAdapter adapter, Context context) {
         this.exercises = exercises;
         this.adapter = adapter;
         this.context = context;
@@ -44,12 +42,12 @@ public class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
             in = new BufferedReader(
                     new InputStreamReader(json.openStream()));
 
-            String jsonString = "";
-            String line = "";
+            StringBuilder jsonString = new StringBuilder();
+            String line;
             while((line = in.readLine()) != null) {
-                jsonString += line;
+                jsonString.append(line);
             }
-            result = new JsonParser().parse(jsonString).getAsJsonObject();
+            result = new JsonParser().parse(jsonString.toString()).getAsJsonObject();
             Log.i(LOG_TAG, String.valueOf(result));
             in.close();
         } catch (java.io.IOException e) {
@@ -83,17 +81,17 @@ public class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
             Day currentDay = data.getCurrentDay(dateToday);
 
             if (currentDay != null) {
-                List<Integer> exercises = currentDay.getExercises();
-                for (int exerciseId : exercises) {
+                List<Integer> exerciseIds = currentDay.getExercises();
+                for (int exerciseId : exerciseIds) {
                     Exercise exercise = data.getExercise(exerciseId);
                     if (exercise != null) {
-                        this.exercises.add(exercise);
+                        exercises.add(exercise);
                     } else {
                         Toast toast = Toast.makeText(context, MessageFormat.format("Exercise id {0} for current day {1} not found in data!", exerciseId, dateToday), Toast.LENGTH_SHORT);
                         toast.show();
                     }
                 }
-                adapter.notifyDataSetChanged();
+                adapter.updateResults(exercises);
             } else {
                 Toast toast = Toast.makeText(context, MessageFormat.format("Current day {0} not found in data!", today), Toast.LENGTH_SHORT);
                 toast.show();

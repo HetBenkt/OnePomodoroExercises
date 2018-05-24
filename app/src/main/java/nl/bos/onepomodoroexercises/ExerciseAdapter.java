@@ -6,27 +6,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import nl.bos.onepomodoroexercises.models.Exercise;
 
-public class ExerciseAdapter extends BaseAdapter {
+import java.util.ArrayList;
+import java.util.List;
 
-    private final Context context;
+class ExerciseAdapter extends BaseAdapter {
+
     private static LayoutInflater inflater = null;
-    private String[] data;
+    private List<Exercise> exercises = new ArrayList<>();
 
-    public ExerciseAdapter(Context context, String[] data) {
-        this.context = context;
-        this.data = data;
+    public ExerciseAdapter(Context context) {
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return data.length;
+        return exercises.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return data[position];
+        return exercises.get(position);
     }
 
     @Override
@@ -34,19 +35,25 @@ public class ExerciseAdapter extends BaseAdapter {
         return position;
     }
 
+
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         View vi = view;
         if (vi == null)
             vi = inflater.inflate(R.layout.row, null);
-        TextView text = (TextView) vi.findViewById(R.id.subtext);
-        text.setText(data[position]);
+
+        TextView header = vi.findViewById(R.id.header);
+        header.setText(exercises.get(position).getName());
+
+        TextView subtext = vi.findViewById(R.id.subtext);
+        subtext.setText(exercises.get(position).getDescription());
+
         return vi;
     }
 
-    public void updateResults(String[] results) {
-        data = results;
-        //Triggers the list update
+
+    public void updateResults(List<Exercise> exercises) {
+        this.exercises = exercises;
         notifyDataSetChanged();
     }
 }

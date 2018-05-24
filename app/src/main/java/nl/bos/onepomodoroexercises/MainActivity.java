@@ -9,12 +9,12 @@ import android.widget.ListView;
 import nl.bos.onepomodoroexercises.models.Exercise;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends Activity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
     private static final String LOG_TAG = "MainActivity";
-    private ArrayList<Exercise> exercises = new ArrayList<>();
-    //private ArrayAdapter adapter;
+    private final List<Exercise> exercises = new ArrayList<>();
     private ExerciseAdapter adapter;
 
     @Override
@@ -27,8 +27,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         viewExercises.setOnItemClickListener(this);
         viewExercises.setOnItemLongClickListener(this);
 
-        //adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, exercises);
-        adapter = new ExerciseAdapter(this, new String[]{"data1", "data2"});
+        adapter = new ExerciseAdapter(this);
         viewExercises.setAdapter(adapter);
         new RetrieveDataTask(exercises, adapter, getApplicationContext()).execute("https://drive.google.com/uc?id=1ObJ5KUPpppQWakof-Bym4MEdX_r4LpSB&export=download");
     }
@@ -41,9 +40,8 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
         Log.i(LOG_TAG, "long click" + id);
-        //exercises.remove(exercises.get(position));
-        //adapter.notifyDataSetChanged();
-        adapter.updateResults(new String[]{"data3", "data4"});
+        exercises.remove(position);
+        adapter.updateResults(exercises);
         return false;
     }
 }

@@ -5,16 +5,16 @@
               android:layout_height="match_parent">
 
     <TextView
-            android:text="Header"
+            android:text="@string/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/header"
-            />
+            android:textSize="24sp"/>
 
     <TextView
-            android:text="Subtext"
+            android:text="@string/subtext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/subtext"
-            android:textSize="8sp"/>
+            android:textSize="14sp"/>
 </LinearLayout>

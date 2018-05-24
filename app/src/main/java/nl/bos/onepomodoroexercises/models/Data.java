@@ -1,6 +1,5 @@
 package nl.bos.onepomodoroexercises.models;
 
-import java.util.Date;
 import java.util.List;
 
 @lombok.Data

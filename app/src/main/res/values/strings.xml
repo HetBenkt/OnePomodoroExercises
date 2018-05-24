@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">One Pomodoro Exercises</string>
+    <string name="header">Header</string>
+    <string name="subtext">Subtext</string>
 </resources>
