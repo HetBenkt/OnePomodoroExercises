@@ -2,4 +2,6 @@
     <string name="app_name">One Pomodoro Exercises</string>
     <string name="header">Header</string>
     <string name="subtext">Subtext</string>
+    <string name="start">Start</string>
+    <string name="timer">Timer</string>
 </resources>
