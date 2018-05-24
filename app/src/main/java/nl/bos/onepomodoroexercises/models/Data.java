@@ -4,7 +4,7 @@ import java.util.List;
 
 @lombok.Data
 public class Data {
-    private String APP_NAME;
+    private String appName;
     private List<Day> days;
     private List<Exercise> exercises;
 

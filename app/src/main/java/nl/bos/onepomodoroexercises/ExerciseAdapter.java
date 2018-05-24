@@ -13,10 +13,10 @@ import java.util.List;
 
 class ExerciseAdapter extends BaseAdapter {
 
-    private static LayoutInflater inflater = null;
+    private LayoutInflater inflater;
     private List<Exercise> exercises = new ArrayList<>();
 
-    public ExerciseAdapter(Context context) {
+    protected ExerciseAdapter(Context context) {
         inflater = LayoutInflater.from(context);
     }
 
@@ -52,7 +52,7 @@ class ExerciseAdapter extends BaseAdapter {
     }
 
 
-    public void updateResults(List<Exercise> exercises) {
+    protected void updateResults(List<Exercise> exercises) {
         this.exercises = exercises;
         notifyDataSetChanged();
     }
