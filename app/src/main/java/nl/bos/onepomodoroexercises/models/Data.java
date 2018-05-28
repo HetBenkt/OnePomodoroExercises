@@ -9,16 +9,16 @@ public class Data {
     private List<Exercise> exercises;
 
     public Day getCurrentDay(String today) {
-        for (Day day: days) {
-            if(day.getDate().equals(today))
+        for (Day day : days) {
+            if (day.getDate().equals(today))
                 return day;
         }
         return null;
     }
 
     public Exercise getExercise(int exerciseId) {
-        for (Exercise exercise: exercises) {
-            if(exercise.getId() == exerciseId)
+        for (Exercise exercise : exercises) {
+            if (exercise.getId() == exerciseId)
                 return exercise;
         }
         return null;

@@ -4,7 +4,14 @@ import lombok.Data;
 
 @Data
 public class Exercise {
+    //from json
+    private int id;
     private String name;
     private String description;
-    private int id;
+    private int category;
+    private int duration;
+    private String duration_steps;
+
+    //non json
+    private boolean done;
 }

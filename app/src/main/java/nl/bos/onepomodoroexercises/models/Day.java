@@ -4,8 +4,10 @@ import java.util.List;
 
 @lombok.Data
 public class Day {
-    private String description;
-    private List<Integer> exercises;
-    private String date;
+    //from json
     private int id;
+    private String title;
+    private String description;
+    private String date;
+    private List<Integer> exercises;
 }

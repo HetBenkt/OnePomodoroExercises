@@ -1,8 +1,11 @@
 package nl.bos.onepomodoroexercises;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -26,11 +29,13 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
     private final List<Exercise> exercises;
     private final ExerciseAdapter adapter;
     private final Context context;
+    private final Activity activity;
 
-    public RetrieveDataTask(List<Exercise> exercises, ExerciseAdapter adapter, Context context) {
+    public RetrieveDataTask(List<Exercise> exercises, ExerciseAdapter adapter, Context context, Activity activity) {
         this.exercises = exercises;
         this.adapter = adapter;
         this.context = context;
+        this.activity = activity;
     }
 
     @Override
@@ -44,7 +49,7 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
 
             StringBuilder jsonString = new StringBuilder();
             String line;
-            while((line = in.readLine()) != null) {
+            while ((line = in.readLine()) != null) {
                 jsonString.append(line);
             }
             result = new JsonParser().parse(jsonString.toString()).getAsJsonObject();
@@ -78,26 +83,36 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
         Log.i(LOG_TAG, dateToday);
 
         if (data != null) {
+
             Day currentDay = data.getCurrentDay(dateToday);
 
             if (currentDay != null) {
+                //Day info
+                TextView dayTitle = activity.findViewById(R.id.txtDayTitle);
+                dayTitle.setText(currentDay.getTitle());
+                TextView dayDescription = activity.findViewById(R.id.txtDayDescription);
+                dayDescription.setText(currentDay.getDescription());
+                TextView dayDate = activity.findViewById(R.id.txtDayDate);
+                dayDate.setText(currentDay.getDate());
+
+                //Exercises info
                 List<Integer> exerciseIds = currentDay.getExercises();
                 for (int exerciseId : exerciseIds) {
                     Exercise exercise = data.getExercise(exerciseId);
                     if (exercise != null) {
                         exercises.add(exercise);
                     } else {
-                        Toast toast = Toast.makeText(context, MessageFormat.format("Exercise id {0} for current day {1} not found in data!", exerciseId, dateToday), Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(context, MessageFormat.format("Exercise id {0} for current day {1} not found in data!", exerciseId, dateToday), Toast.LENGTH_LONG);
                         toast.show();
                     }
                 }
                 adapter.updateResults(exercises);
             } else {
-                Toast toast = Toast.makeText(context, MessageFormat.format("Current day {0} not found in data!", today), Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(context, MessageFormat.format("Current day {0} not found in data!", today), Toast.LENGTH_LONG);
                 toast.show();
             }
         } else {
-            Toast toast = Toast.makeText(context, "No data found!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(context, "No data found!", Toast.LENGTH_LONG);
             toast.show();
         }
     }

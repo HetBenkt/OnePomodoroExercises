@@ -1,6 +1,7 @@
 package nl.bos.onepomodoroexercises;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,7 +24,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     private TextView timer;
     private Button button;
     private Thread timerThread;
-    private int countDownTimer = 25*60;
+    private int countDownTimer = (25 * 60) + 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +44,18 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
 
         adapter = new ExerciseAdapter(this);
         viewExercises.setAdapter(adapter);
-        new RetrieveDataTask(exercises, adapter, getApplicationContext()).execute("https://drive.google.com/uc?id=1ObJ5KUPpppQWakof-Bym4MEdX_r4LpSB&export=download");
+        new RetrieveDataTask(exercises, adapter, getApplicationContext(), this).execute("https://drive.google.com/uc?id=1ObJ5KUPpppQWakof-Bym4MEdX_r4LpSB&export=download");
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         Log.i(LOG_TAG, "click " + id);
+        Exercise exercise = (Exercise) adapterView.getItemAtPosition(position);
+        if (exercise.isDone())
+            exercise.setDone(false);
+        else
+            exercise.setDone(true);
+        adapter.updateResults(exercises);
     }
 
     @Override
@@ -60,15 +67,16 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
         Log.i(LOG_TAG, "Start click");
         timerThread.start();
         button.setEnabled(false);
+        button.setBackgroundColor(Color.GRAY);
     }
 
     @Override
     public void run() {
-        final Handler handler =new Handler(Looper.getMainLooper());
+        final Handler handler = new Handler(Looper.getMainLooper());
         final Runnable r = new Runnable() {
             public void run() {
                 handler.postDelayed(this, 1000);

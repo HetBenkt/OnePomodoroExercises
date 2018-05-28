@@ -4,4 +4,7 @@
     <string name="subtext">Subtext</string>
     <string name="start">Start</string>
     <string name="timer">Timer</string>
+    <string name="dayTitle">DayTitle</string>
+    <string name="dayDescription">DayDescription</string>
+    <string name="dayDate">DayDate</string>
 </resources>

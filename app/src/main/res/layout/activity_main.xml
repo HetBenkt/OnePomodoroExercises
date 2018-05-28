@@ -12,51 +12,81 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp">
+            app:layout_constraintBottom_toBottomOf="parent">
 
         <ListView
+                android:layout_margin="4dp"
                 android:id="@+id/exercises"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight=".75"
-                android:layout_marginTop="8dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp"/>
+                app:layout_constraintStart_toStartOf="parent"/>
 
-        <GridLayout
+        <TableLayout
+                android:background="#FC4A1A"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight=".25">
 
-            <Button
-                    android:text="@string/start"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btnStart"
-                    android:textColor="@android:color/holo_green_dark"/>
-
-            <TextView
-                    android:text="@string/timer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    android:id="@+id/txtTimer"
-                    android:textSize="24sp"
-                    android:textColor="@color/colorPrimaryDark"/>
-        </GridLayout>
-
+            <TableRow
+                    android:layout_margin="4dp">
+                <Button
+                        android:background="#4ABDAC"
+                        android:text="@string/start"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnStart"
+                        android:textColor="@android:color/white"/>
+                <TextView
+                        android:text="@string/timer"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtTimer"
+                        android:textSize="24sp"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="@android:color/white"/>
+            </TableRow>
+            <TableRow
+                    android:layout_margin="4dp">
+                <TextView
+                        android:text="@string/dayTitle"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDayTitle"
+                        android:textSize="24sp"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="@android:color/white"/>
+                <TextView
+                        android:text="@string/dayDate"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDayDate"
+                        android:textSize="24sp"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="@android:color/white"/>
+            </TableRow>
+            <TableRow
+                    android:layout_margin="4dp">
+                <TextView
+                        android:text="@string/dayDescription"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDayDescription"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="@android:color/white"/>
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
