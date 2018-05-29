@@ -1,0 +1,294 @@
+{
+	"appName": "One Pomodoro Exercises",
+	"image_location": "/assets/img/{id}.png",
+	"days": [{
+		"id": 1,
+		"title": "Day 1",
+		"description": "Start of the 4 days exercises!",
+		"date": "30-05-18",
+		"exercises": [
+			4,
+			15,
+			18,
+			19,
+			22,
+			34,
+			39,
+			44,
+			52,
+			57,
+			70,
+			88,
+			89
+		]
+	}, {
+		"id": 2,
+		"title": "Day 2",
+		"description": "",
+		"date": "31-05-18",
+		"exercises": [
+			5,
+			10,
+			17,
+			25,
+			29,
+			38,
+			49,
+			54,
+			58,
+			66,
+			71,
+			84,
+			86
+		]
+	}, {
+		"id": 3,
+		"title": "Day 3",
+		"description": "50% done of the 4 days...good work!",
+		"date": "01-06-18",
+		"exercises": [
+			4,
+			15,
+			18,
+			19,
+			22,
+			34,
+			39,
+			44,
+			52,
+			57,
+			70,
+			88,
+			89
+		]
+	}, {
+		"id": 4,
+		"title": "Day 4",
+		"description": "Finish the sequence as a pro!",
+		"date": "02-06-18",
+		"exercises": [
+			5,
+			10,
+			17,
+			25,
+			29,
+			38,
+			49,
+			54,
+			58,
+			66,
+			71,
+			84,
+			86
+		]
+	}],
+	"exercises": [{
+			"id": 4,
+			"name": "Bird-dog",
+			"description": "",
+			"category": 1,
+			"duration": 50,
+			"duration_steps": "times"
+		},
+		{
+			"id": 5,
+			"name": "Bridge",
+			"description": "",
+			"category": 3,
+			"duration": 65,
+			"duration_steps": "sec"
+		},
+		{
+			"id": 10,
+			"name": "Burpees easy",
+			"description": "",
+			"category": 3,
+			"duration": 12,
+			"duration_steps": "times"
+		},
+		{
+			"id": 15,
+			"name": "Crunches crossed arms",
+			"description": "",
+			"category": 3,
+			"duration": 30,
+			"duration_steps": "times"
+		},
+		{
+			"id": 17,
+			"name": "Crunches reversed",
+			"description": "",
+			"category": 1,
+			"duration": 22,
+			"duration_steps": "times"
+		},
+		{
+			"id": 18,
+			"name": "Donkey kick left/right",
+			"description": "",
+			"category": 3,
+			"duration": 40,
+			"duration_steps": "times"
+		},
+		{
+			"id": 19,
+			"name": "Fire hydrant left/right",
+			"description": "",
+			"category": 3,
+			"duration": 20,
+			"duration_steps": "times"
+		},
+		{
+			"id": 22,
+			"name": "High stepping",
+			"description": "",
+			"category": 3,
+			"duration": 40,
+			"duration_steps": "times"
+		},
+		{
+			"id": 25,
+			"name": "Jumping jacks",
+			"description": "",
+			"category": 1,
+			"duration": 70,
+			"duration_steps": "times"
+		},
+		{
+			"id": 29,
+			"name": "Leg lift sidelying left/right",
+			"description": "",
+			"category": 1,
+			"duration": 26,
+			"duration_steps": "times"
+		},
+		{
+			"id": 34,
+			"name": "Lunges",
+			"description": "",
+			"category": 1,
+			"duration": 28,
+			"duration_steps": "times"
+		},
+		{
+			"id": 38,
+			"name": "Lunges cursty",
+			"description": "",
+			"category": 3,
+			"duration": 40,
+			"duration_steps": "times"
+		},
+		{
+			"id": 39,
+			"name": "Lunges knee jops left/right",
+			"description": "",
+			"category": 3,
+			"duration": 24,
+			"duration_steps": "times"
+		},
+		{
+			"id": 44,
+			"name": "Plank",
+			"description": "",
+			"category": 1,
+			"duration": 70,
+			"duration_steps": "sec"
+		},
+		{
+			"id": 49,
+			"name": "Plank straight arms",
+			"description": "",
+			"category": 1,
+			"duration": 70,
+			"duration_steps": "sec"
+		},
+		{
+			"id": 52,
+			"name": "Push-ups",
+			"description": "",
+			"category": 1,
+			"duration": 16,
+			"duration_steps": "times"
+		},
+		{
+			"id": 54,
+			"name": "Push-ups decline",
+			"description": "",
+			"category": 3,
+			"duration": 18,
+			"duration_steps": "times"
+		},
+		{
+			"id": 57,
+			"name": "Push-ups incline",
+			"description": "",
+			"category": 3,
+			"duration": 16,
+			"duration_steps": "times"
+		},
+		{
+			"id": 58,
+			"name": "Push-ups knee",
+			"description": "",
+			"category": 3,
+			"duration": 26,
+			"duration_steps": "times"
+		},
+		{
+			"id": 66,
+			"name": "Russian twist",
+			"description": "",
+			"category": 3,
+			"duration": 40,
+			"duration_steps": "times"
+		},
+		{
+			"id": 70,
+			"name": "Sit-ups",
+			"description": "",
+			"category": 3,
+			"duration": 18,
+			"duration_steps": "times"
+		},
+		{
+			"id": 71,
+			"name": "Squats",
+			"description": "",
+			"category": 1,
+			"duration": 26,
+			"duration_steps": "times"
+		},
+		{
+			"id": 84,
+			"name": "Superman",
+			"description": "",
+			"category": 2,
+			"duration": 10,
+			"duration_steps": "times"
+		},
+		{
+			"id": 86,
+			"name": "Triceps with chair",
+			"description": "",
+			"category": 1,
+			"duration": 18,
+			"duration_steps": "times"
+		},
+		{
+			"id": 88,
+			"name": "Wallclimbing",
+			"description": "",
+			"category": 1,
+			"duration": 42,
+			"duration_steps": "times"
+		},
+		{
+			"id": 89,
+			"name": "Wallsit",
+			"description": "",
+			"category": 1,
+			"duration": 40,
+			"duration_steps": "sec"
+		}
+	]
+}

@@ -1,6 +1,11 @@
 - nice 'no internet connection' error
 - color configurable in R.
-- setting activity
+- settings activity
+ -> current date manipulation
+ -> 'keep screen on' option
 - cache the data with date-change update
 - logo
-- 'keep screen on' option
+- firebase json db
+- x/13 exercizes done
+- beeb on start
+- beeb on last minute
