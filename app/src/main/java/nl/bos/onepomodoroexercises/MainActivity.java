@@ -44,7 +44,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
 
         adapter = new ExerciseAdapter(this);
         viewExercises.setAdapter(adapter);
-        new RetrieveDataTask(exercises, adapter, getApplicationContext(), this).execute("https://drive.google.com/uc?id=1ObJ5KUPpppQWakof-Bym4MEdX_r4LpSB&export=download");
+        new RetrieveDataTask(exercises, adapter, getApplicationContext(), this).execute("https://raw.githubusercontent.com/HetBenkt/OnePomodoroExercises/master/exercises.json");
     }
 
     @Override
