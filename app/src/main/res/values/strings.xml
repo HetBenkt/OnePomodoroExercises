@@ -7,4 +7,5 @@
     <string name="dayTitle">DayTitle</string>
     <string name="dayDescription">DayDescription</string>
     <string name="dayDate">DayDate</string>
+    <string name="done">Done</string>
 </resources>

@@ -5,6 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/mainBackgroud"
         tools:context="nl.bos.onepomodoroexercises.MainActivity">
 
     <LinearLayout
@@ -21,71 +22,87 @@
                 android:id="@+id/exercises"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".75"
+                android:layout_weight=".8"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
         <TableLayout
-                android:background="#FC4A1A"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/infoBackgroud"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".25">
+                android:layout_weight=".2">
 
             <TableRow
                     android:layout_margin="4dp">
+
                 <Button
-                        android:background="#4ABDAC"
+                        android:background="@color/timerButton"
                         android:text="@string/start"
-                        android:layout_gravity="center"
+                        android:layout_gravity="left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/btnStart"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/mainText"
+                        android:textSize="18sp"/>
                 <TextView
                         android:text="@string/timer"
-                        android:layout_gravity="center"
+                        android:layout_gravity="left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtTimer"
-                        android:textSize="24sp"
+                        android:textSize="36sp"
                         android:layout_marginLeft="8dp"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/rowBackgroudToDo"/>
             </TableRow>
             <TableRow
                     android:layout_margin="4dp">
+
                 <TextView
                         android:text="@string/dayTitle"
-                        android:layout_gravity="center"
+                        android:layout_gravity="left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtDayTitle"
-                        android:textSize="24sp"
+                        android:textSize="18sp"
                         android:layout_marginLeft="8dp"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/mainText"/>
+
                 <TextView
                         android:text="@string/dayDate"
-                        android:layout_gravity="center"
+                        android:layout_gravity="left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtDayDate"
-                        android:textSize="24sp"
+                        android:textSize="18sp"
                         android:layout_marginLeft="8dp"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/mainText"/>
             </TableRow>
             <TableRow
                     android:layout_margin="4dp">
                 <TextView
                         android:text="@string/dayDescription"
-                        android:layout_gravity="center"
+                        android:layout_gravity="left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtDayDescription"
                         android:textSize="14sp"
                         android:layout_marginLeft="8dp"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/mainText"/>
+                <TextView
+                        android:text="@string/done"
+                        android:layout_gravity="left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDone"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="@color/rowBackgroudToDo"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>

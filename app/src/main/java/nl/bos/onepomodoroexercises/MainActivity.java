@@ -51,8 +51,9 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         Log.i(LOG_TAG, "click " + id);
         Exercise exercise = (Exercise) adapterView.getItemAtPosition(position);
-        if (exercise.isDone())
+        if (exercise.isDone()) {
             exercise.setDone(false);
+        }
         else
             exercise.setDone(true);
         adapter.updateResults(exercises);

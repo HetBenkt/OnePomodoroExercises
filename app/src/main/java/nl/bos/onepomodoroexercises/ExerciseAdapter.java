@@ -1,7 +1,6 @@
 package nl.bos.onepomodoroexercises;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,18 +44,18 @@ class ExerciseAdapter extends BaseAdapter {
         Exercise exercise = exercises.get(position);
 
         TextView header = view.findViewById(R.id.header);
-        header.setText(String.format("%d. %s",exercise.getId(), exercise.getName()));
+        header.setText(String.format("%s", exercise.getName()));
         if (exercise.isDone())
-            header.setBackgroundColor(Color.parseColor("#4ABDAC"));
+            header.setBackgroundResource(R.color.rowBackgroudDone);
         else
-            header.setBackgroundColor(Color.parseColor("#F7B733"));
+            header.setBackgroundResource(R.color.rowBackgroudToDo);
 
         TextView subtext = view.findViewById(R.id.subtext);
-        subtext.setText(String.format("Cat: %d -> %d %s", exercise.getCategory(), exercise.getDuration(), exercise.getDuration_steps()));
+        subtext.setText(String.format("%d %s", exercise.getDuration(), exercise.getDuration_steps()));
         if (exercise.isDone())
-            subtext.setBackgroundColor(Color.parseColor("#4ABDAC"));
+            subtext.setBackgroundResource(R.color.rowBackgroudDone);
         else
-            subtext.setBackgroundColor(Color.parseColor("#F7B733"));
+            subtext.setBackgroundResource(R.color.rowBackgroudToDo);
 
         return view;
     }

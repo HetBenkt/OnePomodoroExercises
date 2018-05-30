@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303f9f</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="mainText">#2C3E57</color>
+    <color name="subText">#373D4A</color>
+    <color name="rowBackgroud">#D8D8D8</color>
+    <color name="rowBackgroudToDo">#D8D8D8</color>
+    <color name="rowBackgroudDone">#8BB14C</color>
+    <color name="mainBackgroud">#373D4A</color>
+    <color name="timerButton">#8BB14C</color>
+    <color name="infoBackgroud">#EB4C38</color>
 </resources>

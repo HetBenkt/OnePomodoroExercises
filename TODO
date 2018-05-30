@@ -1,11 +1,19 @@
-- nice 'no internet connection' error
-- color configurable in R.
+DONE - color configurable in R.
+DONE - no screen rotation
+DONE - bigger timer
+DONE - bigger text
+DONE - remove redundant data like id's etc...
+- x/13 exercizes done
 - settings activity
  -> current date manipulation
  -> 'keep screen on' option
+- beeb on start
+- beeb on last minute
+
+- modify field duration_steps -> durationSteps
+- Gradle to Maven
+- timer < 00:00 -> -01:-01
+- nice 'no internet connection' error
 - cache the data with date-change update
 - logo
 - firebase json db
-- x/13 exercizes done
-- beeb on start
-- beeb on last minute

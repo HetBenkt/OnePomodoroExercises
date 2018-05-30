@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -79,7 +80,8 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
         Data data = gson.fromJson(jsonData, Data.class);
 
         Date today = new Date();
-        String dateToday = DateFormat.getDateInstance(DateFormat.SHORT).format(today);
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yy");
+        String dateToday = dateFormatter.format(today);
         Log.i(LOG_TAG, dateToday);
 
         if (data != null) {
@@ -97,6 +99,8 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
 
                 //Exercises info
                 List<Integer> exerciseIds = currentDay.getExercises();
+                TextView done = activity.findViewById(R.id.txtDone);
+                done.setText(String.format("%d/%d", currentDay.getExercisesDone(), exerciseIds.size()));
                 for (int exerciseId : exerciseIds) {
                     Exercise exercise = data.getExercise(exerciseId);
                     if (exercise != null) {

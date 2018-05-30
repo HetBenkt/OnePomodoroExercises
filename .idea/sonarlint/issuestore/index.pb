@@ -8,3 +8,5 @@
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 4
 TODO,b\6\b698c11e84460ed5999bfeb5cbf25b865c238f3c
+>
+exercises.json,e\1\e1cdfbdee1b0e2b5353d4c3131025ddea1090b6e
