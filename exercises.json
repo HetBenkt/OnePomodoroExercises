@@ -2,26 +2,6 @@
 	"appName": "One Pomodoro Exercises",
 	"image_location": "/assets/img/{id}.png",
 	"days": [{
-		"id": 0,
-		"title": "Day 0",
-		"description": "For DEV",
-		"date": "5/29/18",
-		"exercises": [
-			4,
-			15,
-			18,
-			19,
-			22,
-			34,
-			39,
-			44,
-			52,
-			57,
-			70,
-			88,
-			89
-		]
-	},{
 		"id": 1,
 		"title": "Day 1",
 		"description": "Start of the 4 days exercises!",
@@ -128,7 +108,7 @@
 		},
 		{
 			"id": 15,
-			"name": "Crunches crossed arms",
+			"name": "Crunches crossed-arms",
 			"description": "",
 			"category": 3,
 			"duration": 30,
@@ -144,7 +124,7 @@
 		},
 		{
 			"id": 18,
-			"name": "Donkey kick left/right",
+			"name": "Donkeykick left/right",
 			"description": "",
 			"category": 3,
 			"duration": 40,
@@ -152,7 +132,7 @@
 		},
 		{
 			"id": 19,
-			"name": "Fire hydrant left/right",
+			"name": "Firehydrant left/right",
 			"description": "",
 			"category": 3,
 			"duration": 20,
@@ -176,7 +156,7 @@
 		},
 		{
 			"id": 29,
-			"name": "Leg lift sidelying left/right",
+			"name": "Leglift side left/right",
 			"description": "",
 			"category": 1,
 			"duration": 26,
@@ -200,7 +180,7 @@
 		},
 		{
 			"id": 39,
-			"name": "Lunges knee jops left/right",
+			"name": "Lunges kneehops left/right",
 			"description": "",
 			"category": 3,
 			"duration": 24,
@@ -216,7 +196,7 @@
 		},
 		{
 			"id": 49,
-			"name": "Plank straight arms",
+			"name": "Plank straight-arms",
 			"description": "",
 			"category": 1,
 			"duration": 70,
