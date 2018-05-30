@@ -25,6 +25,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     private Button button;
     private Thread timerThread;
     private int countDownTimer = (25 * 60) + 10;
+    private int exercisesDone = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +54,15 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         Exercise exercise = (Exercise) adapterView.getItemAtPosition(position);
         if (exercise.isDone()) {
             exercise.setDone(false);
+            exercisesDone--;
         }
-        else
+        else {
             exercise.setDone(true);
+            exercisesDone++;
+        }
         adapter.updateResults(exercises);
+        TextView done = findViewById(R.id.txtDone);
+        done.setText(String.format("%d/%d", exercisesDone, exercises.size()));
     }
 
     @Override

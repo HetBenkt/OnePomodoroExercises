@@ -10,7 +10,4 @@ public class Day {
     private String description;
     private String date;
     private List<Integer> exercises;
-
-    //non json
-    private int exercisesDone;
 }

@@ -99,8 +99,6 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
 
                 //Exercises info
                 List<Integer> exerciseIds = currentDay.getExercises();
-                TextView done = activity.findViewById(R.id.txtDone);
-                done.setText(String.format("%d/%d", currentDay.getExercisesDone(), exerciseIds.size()));
                 for (int exerciseId : exerciseIds) {
                     Exercise exercise = data.getExercise(exerciseId);
                     if (exercise != null) {
@@ -111,6 +109,8 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
                     }
                 }
                 adapter.updateResults(exercises);
+                TextView done = activity.findViewById(R.id.txtDone);
+                done.setText(String.format("%d/%d", 0, exerciseIds.size()));
             } else {
                 Toast toast = Toast.makeText(context, MessageFormat.format("Current day {0} not found in data!", today), Toast.LENGTH_LONG);
                 toast.show();
