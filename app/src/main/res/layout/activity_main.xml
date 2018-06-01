@@ -42,14 +42,14 @@
                     android:layout_margin="4dp">
 
                 <Button
-                        android:background="@color/timerButton"
                         android:text="@string/start"
                         android:layout_gravity="left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/btnStart"
                         android:textColor="@color/mainText"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:onClick="onStartClick"/>
                 <TextView
                         android:text="@string/timer"
                         android:layout_gravity="left"
@@ -59,6 +59,15 @@
                         android:textSize="36sp"
                         android:layout_marginLeft="8dp"
                         android:textColor="@color/rowBackgroudToDo"/>
+                <Button
+                        android:text="@string/settings"
+                        android:layout_gravity="right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnSettings"
+                        android:textColor="@color/mainText"
+                        android:textSize="18sp"
+                        android:onClick="onSettingsClick"/>
             </TableRow>
             <TableRow
                     android:layout_margin="4dp">

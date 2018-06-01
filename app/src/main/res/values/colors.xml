@@ -8,4 +8,5 @@
     <color name="mainBackgroud">#373D4A</color>
     <color name="timerButton">#8BB14C</color>
     <color name="infoBackgroud">#EB4C38</color>
+    <color name="settingButton">#D8D8D8</color>
 </resources>

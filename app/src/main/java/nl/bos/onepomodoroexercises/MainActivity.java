@@ -16,13 +16,12 @@ import nl.bos.onepomodoroexercises.models.Exercise;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, View.OnClickListener, Runnable {
+public class MainActivity extends Activity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, Runnable {
 
     private static final String LOG_TAG = "MainActivity";
     private final List<Exercise> exercises = new ArrayList<>();
     private ExerciseAdapter adapter;
     private TextView timer;
-    private Button button;
     private Thread timerThread;
     private int countDownTimer = (25 * 60) + 10;
     private int exercisesDone = 0;
@@ -36,9 +35,6 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         ListView viewExercises = findViewById(R.id.exercises);
         viewExercises.setOnItemClickListener(this);
         viewExercises.setOnItemLongClickListener(this);
-
-        button = findViewById(R.id.btnStart);
-        button.setOnClickListener(this);
 
         timer = findViewById(R.id.txtTimer);
         timerThread = new Thread(this);
@@ -73,12 +69,14 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         return false;
     }
 
-    @Override
-    public void onClick(View view) {
+    public void onStartClick(View button) {
         Log.i(LOG_TAG, "Start click");
         timerThread.start();
         button.setEnabled(false);
-        button.setBackgroundColor(Color.GRAY);
+    }
+
+    public void onSettingsClick(View button) {
+        Log.i(LOG_TAG, "Settings click");
     }
 
     @Override
