@@ -5,7 +5,7 @@
 		"id": 1,
 		"title": "Day 1",
 		"description": "Start of the 4 days exercises!",
-		"date": "30-05-18",
+		"date": "04-06-18",
 		"exercises": [
 			4,
 			15,
@@ -25,7 +25,7 @@
 		"id": 2,
 		"title": "Day 2",
 		"description": "Almost half way!",
-		"date": "31-05-18",
+		"date": "05-06-18",
 		"exercises": [
 			5,
 			10,
@@ -45,7 +45,7 @@
 		"id": 3,
 		"title": "Day 3",
 		"description": "50% done...great work!",
-		"date": "01-06-18",
+		"date": "06-06-18",
 		"exercises": [
 			4,
 			15,
@@ -65,7 +65,7 @@
 		"id": 4,
 		"title": "Day 4",
 		"description": "Finish the sequence as a pro!",
-		"date": "02-06-18",
+		"date": "07-06-18",
 		"exercises": [
 			5,
 			10,
@@ -143,7 +143,7 @@
 			"name": "High stepping",
 			"description": "",
 			"category": 3,
-			"duration": 40,
+			"duration": 44,
 			"duration_steps": "times"
 		},
 		{
@@ -271,7 +271,7 @@
 			"name": "Triceps with chair",
 			"description": "",
 			"category": 1,
-			"duration": 18,
+			"duration": 20,
 			"duration_steps": "times"
 		},
 		{
