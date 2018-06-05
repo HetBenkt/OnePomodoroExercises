@@ -17,12 +17,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
 
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:minHeight="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:titleTextColor="@color/rowBackgroudToDo"
+                android:background="@color/mainBackgroud">
+        </android.support.v7.widget.Toolbar>
+
         <ListView
                 android:layout_margin="4dp"
                 android:id="@+id/exercises"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".8"
+                android:layout_weight=".75"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +45,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".2">
+                android:layout_weight=".25">
 
             <TableRow
                     android:layout_margin="4dp">
@@ -59,15 +68,6 @@
                         android:textSize="36sp"
                         android:layout_marginLeft="8dp"
                         android:textColor="@color/rowBackgroudToDo"/>
-                <Button
-                        android:text="@string/settings"
-                        android:layout_gravity="right"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnSettings"
-                        android:textColor="@color/mainText"
-                        android:textSize="18sp"
-                        android:onClick="onSettingsClick"/>
             </TableRow>
             <TableRow
                     android:layout_margin="4dp">

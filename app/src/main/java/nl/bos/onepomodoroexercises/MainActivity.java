@@ -1,14 +1,15 @@
 package nl.bos.onepomodoroexercises;
 
-import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import nl.bos.onepomodoroexercises.models.Exercise;
@@ -16,7 +17,7 @@ import nl.bos.onepomodoroexercises.models.Exercise;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, Runnable {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, Runnable {
 
     private static final String LOG_TAG = "MainActivity";
     private final List<Exercise> exercises = new ArrayList<>();
@@ -31,6 +32,9 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         super.onCreate(savedInstanceState);
         Log.i(LOG_TAG, "onCreate...");
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         ListView viewExercises = findViewById(R.id.exercises);
         viewExercises.setOnItemClickListener(this);
@@ -75,8 +79,9 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         button.setEnabled(false);
     }
 
-    public void onSettingsClick(View button) {
+    public void onSettingsClick(MenuItem menuItem) {
         Log.i(LOG_TAG, "Settings click");
+
     }
 
     @Override
@@ -90,5 +95,11 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             }
         };
         handler.postDelayed(r, 0000);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 }
