@@ -1,5 +1,6 @@
 package nl.bos.onepomodoroexercises;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,8 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, Runnable {
-
-    private static final String LOG_TAG = "MainActivity";
+    private static final String TAG = MainActivity.class.getSimpleName();
     private final List<Exercise> exercises = new ArrayList<>();
     private ExerciseAdapter adapter;
     private TextView timer;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(LOG_TAG, "onCreate...");
+        Log.i(TAG, "onCreate...");
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        Log.i(LOG_TAG, "click " + id);
+        Log.i(TAG, "click " + id);
         Exercise exercise = (Exercise) adapterView.getItemAtPosition(position);
         if (exercise.isDone()) {
             exercise.setDone(false);
@@ -67,21 +67,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
-        Log.i(LOG_TAG, "long click " + id);
+        Log.i(TAG, "long click " + id);
         exercises.remove(position);
         adapter.updateResults(exercises);
         return false;
     }
 
     public void onStartClick(View button) {
-        Log.i(LOG_TAG, "Start click");
+        Log.i(TAG, "Start click");
         timerThread.start();
         button.setEnabled(false);
-    }
-
-    public void onSettingsClick(MenuItem menuItem) {
-        Log.i(LOG_TAG, "Settings click");
-
     }
 
     @Override
@@ -101,5 +96,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.miSettings) {
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
