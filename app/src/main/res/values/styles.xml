@@ -1,10 +1,13 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!--<item name="android:background">@color/mainBackgroud</item>-->
     </style>
 
-    <style name="ToolbarColoredBackArrow" parent="AppTheme">
-        <item name="android:textColorSecondary">#D8D8D8</item>
+    <style name="SettingsTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@color/rowBackgroudToDo</item>
+        <item name="colorAccent">@color/rowBackgroudToDo</item>
     </style>
+
 </resources>

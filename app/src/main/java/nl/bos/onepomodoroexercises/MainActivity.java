@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.i(TAG, "onCreate...");
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         ListView viewExercises = findViewById(R.id.exercises);
         viewExercises.setOnItemClickListener(this);
@@ -85,7 +85,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         final Runnable r = new Runnable() {
             public void run() {
                 handler.postDelayed(this, 1000);
-                timer.setText(String.format("%02d:%02d", countDownTimer / 60, countDownTimer % 60));
+                if(countDownTimer >= 0)
+                    timer.setText(String.format("%02d:%02d", countDownTimer / 60, countDownTimer % 60));
+                else
+                    timer.setText(String.format("-%02d:%02d", -(countDownTimer / 60), -(countDownTimer % 60)));
                 countDownTimer--;
             }
         };

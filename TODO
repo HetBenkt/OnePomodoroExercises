@@ -6,7 +6,6 @@
 
 - modify field duration_steps -> durationSteps
 - Gradle to Maven
-- timer < 00:00 -> -01:-01
 - nice 'no internet connection' error
 - cache the data with date-change update
 - logo
