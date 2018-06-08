@@ -2,7 +2,9 @@ package nl.bos.onepomodoroexercises;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -79,9 +81,8 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
         Gson gson = new GsonBuilder().create();
         Data data = gson.fromJson(jsonData, Data.class);
 
-        Date today = new Date();
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yy");
-        String dateToday = dateFormatter.format(today);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+        String dateToday = sharedPref.getString("edit_text_date", "");
         Log.i(LOG_TAG, dateToday);
 
         if (data != null) {
@@ -112,7 +113,7 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
                 TextView done = activity.findViewById(R.id.txtDone);
                 done.setText(String.format("%d/%d", 0, exerciseIds.size()));
             } else {
-                Toast toast = Toast.makeText(context, MessageFormat.format("Current day {0} not found in data!", today), Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(context, MessageFormat.format("Current day {0} not found in data!", dateToday), Toast.LENGTH_LONG);
                 toast.show();
             }
         } else {

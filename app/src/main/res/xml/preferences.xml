@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <CheckBoxPreference
-            android:key="pref_sync"
-            android:title="title"
-            android:summary="summary"
-            android:defaultValue="true" />
+    <PreferenceCategory
+            android:title="Settings"
+            android:key="settings">
+        <EditTextPreference
+                android:defaultValue="https://raw.githubusercontent.com/HetBenkt/OnePomodoroExercises/master/exercises.json"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="JSON data"
+                android:key="edit_text_json"/>
+        <EditTextPreference
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="Date"
+                android:key="edit_text_date"/>
+    </PreferenceCategory>
 </PreferenceScreen>

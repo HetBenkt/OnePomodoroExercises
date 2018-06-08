@@ -1,11 +1,13 @@
 package nl.bos.onepomodoroexercises;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,9 +35,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.i(TAG, "onCreate...");
         setContentView(R.layout.activity_main);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
         ListView viewExercises = findViewById(R.id.exercises);
         viewExercises.setOnItemClickListener(this);
         viewExercises.setOnItemLongClickListener(this);
@@ -45,7 +44,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         adapter = new ExerciseAdapter(this);
         viewExercises.setAdapter(adapter);
-        new RetrieveDataTask(exercises, adapter, getApplicationContext(), this).execute("https://raw.githubusercontent.com/HetBenkt/OnePomodoroExercises/master/exercises.json");
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        String jsonSetting = settings.getString("edit_text_json", null);
+        new RetrieveDataTask(exercises, adapter, getApplicationContext(), this).execute(jsonSetting);
     }
 
     @Override

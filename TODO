@@ -1,6 +1,8 @@
 - settings activity
- -> current date manipulation
+ -> current date manipulation (in progress)
  -> 'keep screen on' option
+ -> json URL
+ -> clean settings on exit (like current date)
 - beeb on start
 - beeb on last minute
 
