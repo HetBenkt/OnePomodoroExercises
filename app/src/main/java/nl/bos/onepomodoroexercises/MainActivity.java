@@ -3,6 +3,7 @@ package nl.bos.onepomodoroexercises;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Thread timerThread;
     private int countDownTimer = (25 * 60) + 10;
     private int exercisesDone = 0;
+    private MediaPlayer smsTone, btnStart, tmrRun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         String jsonSetting = settings.getString("edit_text_json", null);
         new RetrieveDataTask(exercises, adapter, getApplicationContext(), this).execute(jsonSetting);
+
+        smsTone = MediaPlayer.create(this, R.raw.sms_tone);
+        btnStart = MediaPlayer.create(this, R.raw.btn_click_sound);
+        tmrRun = MediaPlayer.create(this, R.raw.btn_beep_tone);
     }
 
     @Override
@@ -68,13 +74,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         TextView done = findViewById(R.id.txtDone);
         done.setText(String.format("%d/%d", exercisesDone, exercises.size()));
 
-        try {
-            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-            r.play();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        smsTone.start();
     }
 
     @Override
@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.i(TAG, "Start click");
         timerThread.start();
         button.setEnabled(false);
+        btnStart.start();
     }
 
     @Override
@@ -102,6 +103,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 else
                     timer.setText(String.format("-%02d:%02d", -(countDownTimer / 60), -(countDownTimer % 60)));
                 countDownTimer--;
+                if(countDownTimer == (25 * 60) + 2 || countDownTimer == (25 * 60) + 1 || countDownTimer == (25 * 60) + 0)
+                    tmrRun.start();
+                if(countDownTimer == (1 * 60) + 2 || countDownTimer == (1 * 60) + 1 || countDownTimer == (1 * 60) + 0)
+                    tmrRun.start();
             }
         };
         handler.postDelayed(r, 0000);

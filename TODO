@@ -1,8 +1,6 @@
 - settings activity
  -> 'keep screen on' option
  -> clean settings on exit (like current date)
-- beeb on start
-- beeb on last minute
 
 - modify field duration_steps -> durationSteps
 - Gradle to Maven
