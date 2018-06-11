@@ -3,6 +3,9 @@ package nl.bos.onepomodoroexercises;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -64,6 +67,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         adapter.updateResults(exercises);
         TextView done = findViewById(R.id.txtDone);
         done.setText(String.format("%d/%d", exercisesDone, exercises.size()));
+
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
