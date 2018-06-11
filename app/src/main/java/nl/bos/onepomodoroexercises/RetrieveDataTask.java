@@ -16,6 +16,7 @@ import com.google.gson.JsonParser;
 import nl.bos.onepomodoroexercises.models.Data;
 import nl.bos.onepomodoroexercises.models.Day;
 import nl.bos.onepomodoroexercises.models.Exercise;
+import nl.bos.onepomodoroexercises.preferences.DatePreference;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,6 +24,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.MessageFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -82,7 +84,7 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
         Data data = gson.fromJson(jsonData, Data.class);
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        String dateToday = sharedPref.getString("edit_text_date", "");
+        String dateToday = sharedPref.getString("selected_date", "");
         Log.i(LOG_TAG, dateToday);
 
         if (data != null) {
@@ -95,8 +97,16 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
                 dayTitle.setText(currentDay.getTitle());
                 TextView dayDescription = activity.findViewById(R.id.txtDayDescription);
                 dayDescription.setText(currentDay.getDescription());
-                TextView dayDate = activity.findViewById(R.id.txtDayDate);
-                dayDate.setText(currentDay.getDate());
+
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("dd MMM yyyy");
+                DateFormat df = new SimpleDateFormat("yyyy-M-d");
+                try {
+                    Date startDate = df.parse(currentDay.getDate());
+                    TextView dayDate = activity.findViewById(R.id.txtDayDate);
+                    dayDate.setText(dateFormatter.format(startDate));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
                 //Exercises info
                 List<Integer> exerciseIds = currentDay.getExercises();

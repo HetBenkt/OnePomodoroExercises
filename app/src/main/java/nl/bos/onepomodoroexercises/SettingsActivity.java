@@ -1,13 +1,9 @@
 package nl.bos.onepomodoroexercises;
 
 import android.os.Bundle;
-import android.preference.EditTextPreference;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.MenuItem;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class SettingsActivity extends AppCompatPreferenceActivity {
     private static final String TAG = SettingsActivity.class.getSimpleName();

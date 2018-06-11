@@ -9,10 +9,9 @@
                 android:singleLine="true"
                 android:title="JSON data"
                 android:key="edit_text_json"/>
-        <EditTextPreference
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:title="Date"
-                android:key="edit_text_date"/>
+        <nl.bos.onepomodoroexercises.preferences.DatePreference
+                android:key="selected_date"
+                android:title="Selected Date"
+                />
     </PreferenceCategory>
 </PreferenceScreen>
