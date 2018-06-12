@@ -6,7 +6,7 @@
       "id": 1,
       "title": "Day 1",
       "description": "Start of the 4 days exercises!",
-      "date": "2018-6-09",
+      "date": "2018-6-14",
       "exercises": [
         -2,
         4,
@@ -29,7 +29,7 @@
       "id": 2,
       "title": "Day 2",
       "description": "Almost half way!",
-      "date": "2018-6-10",
+      "date": "2018-6-15",
       "exercises": [
         -2,
         5,
@@ -52,20 +52,20 @@
       "id": 3,
       "title": "Day 3",
       "description": "50% done...great work!",
-      "date": "2018-6-11",
+      "date": "2018-6-16",
       "exercises": [
         -2,
         4,
-        15,
+        16,
         18,
         19,
         22,
         34,
         39,
-        44,
+        46,
         52,
         57,
-        70,
+        76,
         88,
         89,
         -3
@@ -75,10 +75,10 @@
       "id": 4,
       "title": "Day 4",
       "description": "Finish the sequence as a pro!",
-      "date": "2018-6-12",
+      "date": "2018-6-17",
       "exercises": [
         -2,
-        5,
+        6,
         10,
         17,
         25,
@@ -154,6 +154,14 @@
       "duration_steps": "sec"
     },
     {
+      "id": 6,
+      "name": "Bridge butt",
+      "description": "",
+      "category": 3,
+      "duration": 24,
+      "duration_steps": "times"
+    },
+    {
       "id": 10,
       "name": "Burpees easy",
       "description": "",
@@ -167,6 +175,14 @@
       "description": "",
       "category": 3,
       "duration": 30,
+      "duration_steps": "times"
+    },
+    {
+      "id": 16,
+      "name": "Crunches long-arms",
+      "description": "",
+      "category": 3,
+      "duration": 16,
       "duration_steps": "times"
     },
     {
@@ -250,6 +266,14 @@
       "duration_steps": "sec"
     },
     {
+      "id": 46,
+      "name": "Plank side left/right",
+      "description": "",
+      "category": 1,
+      "duration": 60,
+      "duration_steps": "sec"
+    },
+    {
       "id": 49,
       "name": "Plank straight-arms",
       "description": "",
@@ -311,6 +335,14 @@
       "description": "",
       "category": 1,
       "duration": 26,
+      "duration_steps": "times"
+    },
+    {
+      "id": 76,
+      "name": "Squats split left/right",
+      "description": "",
+      "category": 3,
+      "duration": 30,
       "duration_steps": "times"
     },
     {
