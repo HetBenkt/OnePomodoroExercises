@@ -6,7 +6,7 @@
       "id": 1,
       "title": "Day 1",
       "description": "Start of the 4 days exercises!",
-      "date": "2018-6-14",
+      "date": "2018-6-19",
       "exercises": [
         -2,
         4,
@@ -29,7 +29,7 @@
       "id": 2,
       "title": "Day 2",
       "description": "Almost half way!",
-      "date": "2018-6-15",
+      "date": "2018-6-20",
       "exercises": [
         -2,
         5,
@@ -52,7 +52,7 @@
       "id": 3,
       "title": "Day 3",
       "description": "50% done...great work!",
-      "date": "2018-6-16",
+      "date": "2018-6-21",
       "exercises": [
         -2,
         4,
@@ -75,7 +75,7 @@
       "id": 4,
       "title": "Day 4",
       "description": "Finish the sequence as a pro!",
-      "date": "2018-6-17",
+      "date": "2018-6-22",
       "exercises": [
         -2,
         6,
@@ -98,7 +98,7 @@
       "id": 5,
       "title": "Day 5",
       "description": "Your day off as earned!",
-      "date": "2018-6-13",
+      "date": "2018-6-23",
       "exercises": [
         -1
       ]
@@ -214,7 +214,7 @@
       "name": "High stepping",
       "description": "",
       "category": 3,
-      "duration": 44,
+      "duration": 48,
       "duration_steps": "times"
     },
     {
@@ -318,7 +318,7 @@
       "name": "Russian twist",
       "description": "",
       "category": 3,
-      "duration": 42,
+      "duration": 44,
       "duration_steps": "times"
     },
     {
@@ -358,7 +358,7 @@
       "name": "Triceps with chair",
       "description": "",
       "category": 1,
-      "duration": 20,
+      "duration": 22,
       "duration_steps": "times"
     },
     {
