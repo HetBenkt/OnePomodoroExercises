@@ -2,9 +2,7 @@
  -> 'keep screen on' option
  -> clean settings on exit (like current date)
 
-- modify field duration_steps -> durationSteps
 - Gradle to Maven
-- nice 'no internet connection' error
 - cache the data with date-change update
 - logo
 - firebase json db

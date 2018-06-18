@@ -51,7 +51,7 @@ class ExerciseAdapter extends BaseAdapter {
             header.setBackgroundResource(R.color.rowBackgroudToDo);
 
         TextView subtext = view.findViewById(R.id.subtext);
-        subtext.setText(String.format("%d %s", exercise.getDuration(), exercise.getDuration_steps()));
+        subtext.setText(String.format("%d %s", exercise.getDuration(), exercise.getSteps()));
         if (exercise.isDone())
             subtext.setBackgroundResource(R.color.rowBackgroudDone);
         else

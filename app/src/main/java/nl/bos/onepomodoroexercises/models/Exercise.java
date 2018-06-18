@@ -10,7 +10,7 @@ public class Exercise {
     private String description;
     private int category;
     private int duration;
-    private String duration_steps;
+    private String steps;
 
     //non json
     private boolean done;

@@ -111,7 +111,7 @@
       "description": "",
       "category": 0,
       "duration": 0,
-      "duration_steps": ""
+      "steps": ""
     },
     {
       "id": -2,
@@ -119,7 +119,7 @@
       "description": "Warm it up before you start",
       "category": 1,
       "duration": 1,
-      "duration_steps": "min"
+      "steps": "min"
     },
     {
       "id": -3,
@@ -127,7 +127,7 @@
       "description": "Important after a sports activity",
       "category": 1,
       "duration": 1,
-      "duration_steps": "min"
+      "steps": "min"
     },
     {
       "id": -4,
@@ -135,7 +135,7 @@
       "description": "Important after a sports activity",
       "category": 1,
       "duration": 1,
-      "duration_steps": "min"
+      "steps": "min"
     },
     {
       "id": 4,
@@ -143,7 +143,7 @@
       "description": "",
       "category": 1,
       "duration": 50,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 5,
@@ -151,7 +151,7 @@
       "description": "",
       "category": 3,
       "duration": 65,
-      "duration_steps": "sec"
+      "steps": "sec"
     },
     {
       "id": 6,
@@ -159,7 +159,7 @@
       "description": "",
       "category": 3,
       "duration": 24,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 10,
@@ -167,7 +167,7 @@
       "description": "",
       "category": 3,
       "duration": 12,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 15,
@@ -175,7 +175,7 @@
       "description": "",
       "category": 3,
       "duration": 30,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 16,
@@ -183,7 +183,7 @@
       "description": "",
       "category": 3,
       "duration": 16,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 17,
@@ -191,7 +191,7 @@
       "description": "",
       "category": 1,
       "duration": 22,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 18,
@@ -199,7 +199,7 @@
       "description": "",
       "category": 3,
       "duration": 40,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 19,
@@ -207,7 +207,7 @@
       "description": "",
       "category": 3,
       "duration": 20,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 22,
@@ -215,7 +215,7 @@
       "description": "",
       "category": 3,
       "duration": 48,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 25,
@@ -223,7 +223,7 @@
       "description": "",
       "category": 1,
       "duration": 70,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 29,
@@ -231,7 +231,7 @@
       "description": "",
       "category": 1,
       "duration": 26,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 34,
@@ -239,7 +239,7 @@
       "description": "",
       "category": 1,
       "duration": 28,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 38,
@@ -247,7 +247,7 @@
       "description": "",
       "category": 3,
       "duration": 40,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 39,
@@ -255,7 +255,7 @@
       "description": "",
       "category": 3,
       "duration": 24,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 44,
@@ -263,7 +263,7 @@
       "description": "",
       "category": 1,
       "duration": 70,
-      "duration_steps": "sec"
+      "steps": "sec"
     },
     {
       "id": 46,
@@ -271,7 +271,7 @@
       "description": "",
       "category": 1,
       "duration": 60,
-      "duration_steps": "sec"
+      "steps": "sec"
     },
     {
       "id": 49,
@@ -279,7 +279,7 @@
       "description": "",
       "category": 1,
       "duration": 70,
-      "duration_steps": "sec"
+      "steps": "sec"
     },
     {
       "id": 52,
@@ -287,7 +287,7 @@
       "description": "",
       "category": 1,
       "duration": 18,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 54,
@@ -295,7 +295,7 @@
       "description": "",
       "category": 3,
       "duration": 18,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 57,
@@ -303,7 +303,7 @@
       "description": "",
       "category": 3,
       "duration": 16,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 58,
@@ -311,7 +311,7 @@
       "description": "",
       "category": 3,
       "duration": 28,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 66,
@@ -319,7 +319,7 @@
       "description": "",
       "category": 3,
       "duration": 44,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 70,
@@ -327,7 +327,7 @@
       "description": "",
       "category": 3,
       "duration": 20,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 71,
@@ -335,7 +335,7 @@
       "description": "",
       "category": 1,
       "duration": 26,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 76,
@@ -343,7 +343,7 @@
       "description": "",
       "category": 3,
       "duration": 30,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 84,
@@ -351,7 +351,7 @@
       "description": "",
       "category": 2,
       "duration": 10,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 86,
@@ -359,7 +359,7 @@
       "description": "",
       "category": 1,
       "duration": 22,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 88,
@@ -367,7 +367,7 @@
       "description": "",
       "category": 1,
       "duration": 42,
-      "duration_steps": "times"
+      "steps": "times"
     },
     {
       "id": 89,
@@ -375,7 +375,7 @@
       "description": "",
       "category": 1,
       "duration": 40,
-      "duration_steps": "sec"
+      "steps": "sec"
     }
   ]
 }
