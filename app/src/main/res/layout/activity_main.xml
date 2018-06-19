@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/mainBackgroud"
+        android:background="@color/mainBackground"
         tools:context="nl.bos.onepomodoroexercises.MainActivity">
 
     <LinearLayout
@@ -32,7 +32,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="4dp"
-                android:background="@color/infoBackgroud"
+                android:background="@color/infoBackground"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -58,7 +58,7 @@
                         android:id="@+id/txtTimer"
                         android:textSize="36sp"
                         android:layout_marginLeft="8dp"
-                        android:textColor="@color/rowBackgroudToDo"/>
+                        android:textColor="@color/rowBackgroundToDo"/>
             </TableRow>
             <TableRow
                     android:layout_margin="4dp">
@@ -102,7 +102,7 @@
                         android:id="@+id/txtDone"
                         android:textSize="14sp"
                         android:layout_marginLeft="8dp"
-                        android:textColor="@color/rowBackgroudToDo"/>
+                        android:textColor="@color/rowBackgroundToDo"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>

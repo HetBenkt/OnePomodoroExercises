@@ -19,7 +19,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         try {
             callerClass = Class.forName(caller);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Log.e(TAG, e.getMessage());
         }
 
         ActionBar actionBar = getSupportActionBar();
@@ -33,17 +33,17 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new SettingsFragment())
                 .commit();
-        getListView().setBackgroundResource(R.color.mainBackgroud);
+        getListView().setBackgroundResource(R.color.mainBackground);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
+        if(item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

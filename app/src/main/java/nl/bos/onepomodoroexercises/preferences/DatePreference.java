@@ -14,7 +14,7 @@ public class DatePreference extends DialogPreference {
     private int lastDate = 0;
     private int lastMonth = 0;
     private int lastYear = 0;
-    private String dateval;
+    private String dateValidate;
     private DatePicker picker = null;
 
     public DatePreference(Context context, AttributeSet attrs) {
@@ -24,18 +24,18 @@ public class DatePreference extends DialogPreference {
         setNegativeButtonText("Cancel");
     }
 
-    public static int getYear(String dateval) {
-        String[] pieces = dateval.split("-");
+    private static int getYear(String dateValidate) {
+        String[] pieces = dateValidate.split("-");
         return (Integer.parseInt(pieces[0]));
     }
 
-    public static int getMonth(String dateval) {
-        String[] pieces = dateval.split("-");
+    private static int getMonth(String dateValidate) {
+        String[] pieces = dateValidate.split("-");
         return (Integer.parseInt(pieces[1]));
     }
 
-    public static int getDay(String dateval) {
-        String[] pieces = dateval.split("-");
+    private static int getDay(String dateValidate) {
+        String[] pieces = dateValidate.split("-");
         return (Integer.parseInt(pieces[2]));
     }
 
@@ -48,12 +48,11 @@ public class DatePreference extends DialogPreference {
             lastMonth = picker.getMonth()+1;
             lastDate = picker.getDayOfMonth();
 
-            String dateval = String.valueOf(lastYear) + "-"
-                    + String.valueOf(lastMonth) + "-"
-                    + String.valueOf(lastDate);
+            StringBuilder date = new StringBuilder();
+            date.append(lastYear).append("-").append(lastMonth).append("-").append(lastDate);
 
-            if (callChangeListener(dateval)) {
-                persistString(dateval);
+            if (callChangeListener(date)) {
+                persistString(date.toString());
             }
         }
     }
@@ -72,29 +71,29 @@ public class DatePreference extends DialogPreference {
 
     @Override
     protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        dateval = null;
+        dateValidate = null;
 
         if (restoreValue) {
             if (defaultValue == null) {
                 Calendar cal = Calendar.getInstance();
                 SimpleDateFormat format1 = new SimpleDateFormat("yyyy-M-d");
                 String formatted = format1.format(cal.getTime());
-                dateval = getPersistedString(formatted);
+                dateValidate = getPersistedString(formatted);
             } else {
-                dateval = getPersistedString(defaultValue.toString());
+                dateValidate = getPersistedString(defaultValue.toString());
             }
         } else {
-            dateval = defaultValue.toString();
+            dateValidate = defaultValue.toString();
         }
-        lastYear = getYear(dateval);
-        lastMonth = getMonth(dateval);
-        lastDate = getDay(dateval);
+        lastYear = getYear(dateValidate);
+        lastMonth = getMonth(dateValidate);
+        lastDate = getDay(dateValidate);
     }
 
     public void setText(String text) {
         final boolean wasBlocking = shouldDisableDependents();
 
-        dateval = text;
+        dateValidate = text;
 
         persistString(text);
 
@@ -102,9 +101,5 @@ public class DatePreference extends DialogPreference {
         if (isBlocking != wasBlocking) {
             notifyDependencyChange(isBlocking);
         }
-    }
-
-    public String getText() {
-        return dateval;
     }
 }

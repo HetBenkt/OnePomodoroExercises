@@ -21,20 +21,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 import nl.bos.onepomodoroexercises.models.Exercise;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, Runnable {
     private static final String TAG = MainActivity.class.getSimpleName();
-    public static final int ONE_MINUTE = 60;
+    private static final int ONE_MINUTE = 60;
     private final List<Exercise> exercises = new ArrayList<>();
     private ExerciseAdapter adapter;
     private TextView timer;
     private Thread timerThread;
     private int countDownTimer = (25 * ONE_MINUTE) + 10;
     private int exercisesDone = 0;
-    private MediaPlayer smsTone, btnStart, tmrRun, tmrHurry, tmrStart;
+    private MediaPlayer smsTone;
+    private MediaPlayer btnStart;
+    private MediaPlayer tmrRun;
+    private MediaPlayer tmrHurry;
+    private MediaPlayer tmrStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         tmrHurry = MediaPlayer.create(this, R.raw.tmr_beep_beep_beep);
         tmrStart = MediaPlayer.create(this, R.raw.tmr_beep);
 
-        if(isOnline()) {
+        if (isOnline()) {
             setContentView(R.layout.activity_main);
 
             ListView viewExercises = findViewById(R.id.exercises);
@@ -72,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private boolean isOnline() {
         ConnectivityManager cm =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        NetworkInfo netInfo = Objects.requireNonNull(cm).getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
@@ -120,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 else
                     timer.setText(String.format("-%02d:%02d", -(countDownTimer / ONE_MINUTE), -(countDownTimer % ONE_MINUTE)));
                 countDownTimer--;
-                if (countDownTimer == (25 * ONE_MINUTE) + 2 || countDownTimer == (25 * ONE_MINUTE) + 1 || countDownTimer == (25 * ONE_MINUTE) + 0)
+                if (countDownTimer == (25 * ONE_MINUTE) + 2 || countDownTimer == (25 * ONE_MINUTE) + 1 || countDownTimer == (25 * ONE_MINUTE))
                     tmrRun.start();
                 if (countDownTimer == 2 || countDownTimer == 1 || countDownTimer == 0)
                     tmrRun.start();
@@ -130,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     tmrStart.start();
             }
         };
-        handler.postDelayed(r, 0000);
+        handler.postDelayed(r, 0);
     }
 
     @Override

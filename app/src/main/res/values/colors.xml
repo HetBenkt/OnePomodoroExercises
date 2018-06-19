@@ -2,11 +2,11 @@
 <resources>
     <color name="mainText">#2C3E57</color>
     <color name="subText">#373D4A</color>
-    <color name="rowBackgroud">#D8D8D8</color>
-    <color name="rowBackgroudToDo">#D8D8D8</color>
-    <color name="rowBackgroudDone">#8BB14C</color>
-    <color name="mainBackgroud">#373D4A</color>
+    <color name="rowBackground">#D8D8D8</color>
+    <color name="rowBackgroundToDo">#D8D8D8</color>
+    <color name="rowBackgroundDone">#8BB14C</color>
+    <color name="mainBackground">#373D4A</color>
     <color name="timerButton">#8BB14C</color>
-    <color name="infoBackgroud">#EB4C38</color>
+    <color name="infoBackground">#EB4C38</color>
     <color name="settingButton">#D8D8D8</color>
 </resources>

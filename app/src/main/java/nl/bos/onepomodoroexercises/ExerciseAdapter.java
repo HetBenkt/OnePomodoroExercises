@@ -13,10 +13,10 @@ import java.util.List;
 
 class ExerciseAdapter extends BaseAdapter {
 
-    private LayoutInflater inflater;
+    private final LayoutInflater inflater;
     private List<Exercise> exercises = new ArrayList<>();
 
-    protected ExerciseAdapter(Context context) {
+    ExerciseAdapter(Context context) {
         inflater = LayoutInflater.from(context);
     }
 
@@ -46,22 +46,22 @@ class ExerciseAdapter extends BaseAdapter {
         TextView header = view.findViewById(R.id.header);
         header.setText(String.format("%s", exercise.getName()));
         if (exercise.isDone())
-            header.setBackgroundResource(R.color.rowBackgroudDone);
+            header.setBackgroundResource(R.color.rowBackgroundDone);
         else
-            header.setBackgroundResource(R.color.rowBackgroudToDo);
+            header.setBackgroundResource(R.color.rowBackgroundToDo);
 
         TextView subtext = view.findViewById(R.id.subtext);
         subtext.setText(String.format("%d %s", exercise.getDuration(), exercise.getSteps()));
         if (exercise.isDone())
-            subtext.setBackgroundResource(R.color.rowBackgroudDone);
+            subtext.setBackgroundResource(R.color.rowBackgroundDone);
         else
-            subtext.setBackgroundResource(R.color.rowBackgroudToDo);
+            subtext.setBackgroundResource(R.color.rowBackgroundToDo);
 
         return view;
     }
 
 
-    protected void updateResults(List<Exercise> exercises) {
+    void updateResults(List<Exercise> exercises) {
         this.exercises = exercises;
         notifyDataSetChanged();
     }

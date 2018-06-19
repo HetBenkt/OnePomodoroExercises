@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
@@ -16,7 +15,6 @@ import com.google.gson.JsonParser;
 import nl.bos.onepomodoroexercises.models.Data;
 import nl.bos.onepomodoroexercises.models.Day;
 import nl.bos.onepomodoroexercises.models.Exercise;
-import nl.bos.onepomodoroexercises.preferences.DatePreference;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,7 +28,8 @@ import java.util.Date;
 import java.util.List;
 
 class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
-    private final static String LOG_TAG = "RetrieveDataTask";
+    private static final String TAG = RetrieveDataTask.class.getSimpleName();
+
     private final List<Exercise> exercises;
     private final ExerciseAdapter adapter;
     private final Context context;
@@ -58,18 +57,16 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
                 jsonString.append(line);
             }
             result = new JsonParser().parse(jsonString.toString()).getAsJsonObject();
-            Log.i(LOG_TAG, String.valueOf(result));
+            Log.i(TAG, String.valueOf(result));
             in.close();
         } catch (java.io.IOException e) {
-            Log.e(LOG_TAG, e.getMessage());
-            e.printStackTrace();
+            Log.e(TAG, e.getMessage());
         } finally {
             if (in != null) {
                 try {
                     in.close();
                 } catch (IOException e) {
-                    Log.e(LOG_TAG, e.getMessage());
-                    e.printStackTrace();
+                    Log.e(TAG, e.getMessage());
                 }
             }
         }
@@ -85,7 +82,7 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         String dateToday = sharedPref.getString("selected_date", "");
-        Log.i(LOG_TAG, dateToday);
+        Log.i(TAG, dateToday);
 
         if (data != null) {
 
@@ -105,7 +102,7 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
                     TextView dayDate = activity.findViewById(R.id.txtDayDate);
                     dayDate.setText(dateFormatter.format(startDate));
                 } catch (ParseException e) {
-                    e.printStackTrace();
+                    Log.e(TAG, e.getMessage());
                 }
 
                 //Exercises info

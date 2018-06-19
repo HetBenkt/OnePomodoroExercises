@@ -7,6 +7,7 @@ import nl.bos.onepomodoroexercises.preferences.DatePreference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@SuppressWarnings("WeakerAccess")
 public class SettingsFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -1,7 +1,9 @@
+- onCreate starts with current date; onSettingsStop use the new date
+ -> for both onCreate is triggered; know where you come from!
+- Clean sonar issues
 - settings activity
  -> 'keep screen on' option
  -> clean settings on exit (like current date)
-
 - Gradle to Maven
 - cache the data with date-change update
 - firebase json db
