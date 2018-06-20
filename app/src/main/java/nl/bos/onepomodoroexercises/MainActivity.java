@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void onStartClick(View button) {
-        Log.i(TAG, "Start click");
+        Log.i(TAG, String.format("Click on %s", button.getId()));
         timerThread.start();
         button.setEnabled(false);
         btnStart.start();
@@ -157,11 +157,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onDestroy() {
-        if (timerThread.isAlive())
+    public void onExitClick(View button) {
+        Log.i(TAG, String.format("Click on %s", button.getId()));
+        if (timerThread.isAlive() || !timerThread.isInterrupted())
             timerThread.interrupt();
 
-        super.onDestroy();
+        System.exit(0);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Do nothing!
     }
 }

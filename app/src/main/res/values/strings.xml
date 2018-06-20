@@ -9,4 +9,5 @@
     <string name="dayDescription">DayDescription</string>
     <string name="dayDate">DayDate</string>
     <string name="done">Done</string>
+    <string name="exit">X</string>
 </resources>
