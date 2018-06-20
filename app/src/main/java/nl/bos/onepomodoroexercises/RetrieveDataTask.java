@@ -80,8 +80,19 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
         Gson gson = new GsonBuilder().create();
         Data data = gson.fromJson(jsonData, Data.class);
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        String dateToday = sharedPref.getString("selected_date", "");
+        String caller = activity.getIntent().getStringExtra("caller");
+        Log.i(TAG, String.format("Caller is %s", caller));
+
+        String dateToday = "";
+        if(caller !=  null) {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+            dateToday = sharedPref.getString("selected_date", "");
+        } else {
+            Date today = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
+            dateToday = sdf.format(today);
+        }
+
         Log.i(TAG, dateToday);
 
         if (data != null) {

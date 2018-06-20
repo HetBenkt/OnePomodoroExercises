@@ -1,6 +1,5 @@
-- onCreate starts with current date; onSettingsStop use the new date
- -> for both onCreate is triggered; know where you come from!
 - Clean sonar issues
+- Exercises: images, description, colorcodes
 - settings activity
  -> 'keep screen on' option
  -> clean settings on exit (like current date)

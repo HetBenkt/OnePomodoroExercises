@@ -52,6 +52,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         Log.i(TAG, "onStop...");
 
         Intent intent = new Intent(getApplicationContext(), callerClass);
+        intent.putExtra("caller", this.getClass().getName());
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

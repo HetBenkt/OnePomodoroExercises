@@ -156,4 +156,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(!timerThread.isInterrupted())
+            timerThread.interrupt();
+        System.exit(0);
+    }
 }
