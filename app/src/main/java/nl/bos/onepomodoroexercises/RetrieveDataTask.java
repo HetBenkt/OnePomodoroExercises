@@ -17,8 +17,8 @@ import nl.bos.onepomodoroexercises.models.Day;
 import nl.bos.onepomodoroexercises.models.Exercise;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.MessageFormat;
@@ -45,29 +45,25 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
     @Override
     protected JsonObject doInBackground(String... urls) {
         JsonObject result = null;
-        BufferedReader in = null;
-        try {
-            URL json = new URL(urls[0]);
-            in = new BufferedReader(
-                    new InputStreamReader(json.openStream()));
 
-            StringBuilder jsonString = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null) {
-                jsonString.append(line);
-            }
-            result = new JsonParser().parse(jsonString.toString()).getAsJsonObject();
-            Log.i(TAG, String.valueOf(result));
-            in.close();
-        } catch (java.io.IOException e) {
+        URL json = null;
+        try {
+            json = new URL(urls[0]);
+        } catch (MalformedURLException e) {
             Log.e(TAG, e.getMessage());
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    Log.e(TAG, e.getMessage());
+        }
+
+        if(json != null) {
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(json.openStream()))) {
+                StringBuilder jsonString = new StringBuilder();
+                String line;
+                while ((line = in.readLine()) != null) {
+                    jsonString.append(line);
                 }
+                result = new JsonParser().parse(jsonString.toString()).getAsJsonObject();
+                Log.i(TAG, String.valueOf(result));
+            } catch (java.io.IOException e) {
+                Log.e(TAG, e.getMessage());
             }
         }
 
@@ -80,19 +76,7 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
         Gson gson = new GsonBuilder().create();
         Data data = gson.fromJson(jsonData, Data.class);
 
-        String caller = activity.getIntent().getStringExtra("caller");
-        Log.i(TAG, String.format("Caller is %s", caller));
-
-        String dateToday = "";
-        if(caller !=  null) {
-            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-            dateToday = sharedPref.getString("selected_date", "");
-        } else {
-            Date today = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
-            dateToday = sdf.format(today);
-        }
-
+        String dateToday = getDateToday();
         Log.i(TAG, dateToday);
 
         if (data != null) {
@@ -100,33 +84,12 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
             Day currentDay = data.getCurrentDay(dateToday);
 
             if (currentDay != null) {
-                //Day info
-                TextView dayTitle = activity.findViewById(R.id.txtDayTitle);
-                dayTitle.setText(currentDay.getTitle());
-                TextView dayDescription = activity.findViewById(R.id.txtDayDescription);
-                dayDescription.setText(currentDay.getDescription());
 
-                SimpleDateFormat dateFormatter = new SimpleDateFormat("dd MMM yyyy");
-                DateFormat df = new SimpleDateFormat("yyyy-M-d");
-                try {
-                    Date startDate = df.parse(currentDay.getDate());
-                    TextView dayDate = activity.findViewById(R.id.txtDayDate);
-                    dayDate.setText(dateFormatter.format(startDate));
-                } catch (ParseException e) {
-                    Log.e(TAG, e.getMessage());
-                }
-
-                //Exercises info
                 List<Integer> exerciseIds = currentDay.getExercises();
-                for (int exerciseId : exerciseIds) {
-                    Exercise exercise = data.getExercise(exerciseId);
-                    if (exercise != null) {
-                        exercises.add(exercise);
-                    } else {
-                        Toast toast = Toast.makeText(context, MessageFormat.format("Exercise id {0} for current day {1} not found in data!", exerciseId, dateToday), Toast.LENGTH_LONG);
-                        toast.show();
-                    }
-                }
+
+                handleDayInfo(currentDay);
+                handleExercisesInfo(exerciseIds, data, dateToday);
+
                 adapter.updateResults(exercises);
                 TextView done = activity.findViewById(R.id.txtDone);
                 done.setText(String.format("%d/%d", 0, exerciseIds.size()));
@@ -138,5 +101,51 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
             Toast toast = Toast.makeText(context, "No data found!", Toast.LENGTH_LONG);
             toast.show();
         }
+    }
+
+    private void handleExercisesInfo(List<Integer> exerciseIds, Data data, String dateToday) {
+        for (int exerciseId : exerciseIds) {
+            Exercise exercise = data.getExercise(exerciseId);
+            if (exercise != null) {
+                exercises.add(exercise);
+            } else {
+                Toast toast = Toast.makeText(context, MessageFormat.format("Exercise id {0} for current day {1} not found in data!", exerciseId, dateToday), Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
+    }
+
+    private void handleDayInfo(Day currentDay) {
+        TextView dayTitle = activity.findViewById(R.id.txtDayTitle);
+        dayTitle.setText(currentDay.getTitle());
+        TextView dayDescription = activity.findViewById(R.id.txtDayDescription);
+        dayDescription.setText(currentDay.getDescription());
+
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd MMM yyyy");
+        DateFormat df = new SimpleDateFormat("yyyy-M-d");
+        try {
+            Date startDate = df.parse(currentDay.getDate());
+            TextView dayDate = activity.findViewById(R.id.txtDayDate);
+            dayDate.setText(dateFormatter.format(startDate));
+        } catch (ParseException e) {
+            Log.e(TAG, e.getMessage());
+        }
+    }
+
+    private String getDateToday() {
+        String result;
+        String caller = activity.getIntent().getStringExtra("caller");
+        Log.i(TAG, String.format("Caller is %s", caller));
+
+        if(caller !=  null) {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+            result = sharedPref.getString("selected_date", "");
+        } else {
+            Date today = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
+            result = sdf.format(today);
+        }
+
+        return result;
     }
 }

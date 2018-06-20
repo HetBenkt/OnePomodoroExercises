@@ -14,7 +14,6 @@ public class DatePreference extends DialogPreference {
     private int lastDate = 0;
     private int lastMonth = 0;
     private int lastYear = 0;
-    private String dateValidate;
     private DatePicker picker = null;
 
     public DatePreference(Context context, AttributeSet attrs) {
@@ -71,7 +70,7 @@ public class DatePreference extends DialogPreference {
 
     @Override
     protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        dateValidate = null;
+        String dateValidate;
 
         if (restoreValue) {
             if (defaultValue == null) {
@@ -90,16 +89,4 @@ public class DatePreference extends DialogPreference {
         lastDate = getDay(dateValidate);
     }
 
-    public void setText(String text) {
-        final boolean wasBlocking = shouldDisableDependents();
-
-        dateValidate = text;
-
-        persistString(text);
-
-        final boolean isBlocking = shouldDisableDependents();
-        if (isBlocking != wasBlocking) {
-            notifyDependencyChange(isBlocking);
-        }
-    }
 }

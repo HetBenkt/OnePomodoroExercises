@@ -22,15 +22,15 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:27.1.1'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support.constraint:constraint-layout:1.1.0'
-    compile 'com.android.support:support-v4:27.1.1'
-    testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.2', {
+    api 'com.android.support:appcompat-v7:27.1.1'
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api 'com.android.support.constraint:constraint-layout:1.1.0'
+    api 'com.android.support:support-v4:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'org.projectlombok:lombok:1.16.20'
+    api 'org.projectlombok:lombok:1.16.20'
     annotationProcessor 'org.projectlombok:lombok:1.16.20'
-    compile 'com.google.code.gson:gson:2.8.0'
+    api 'com.google.code.gson:gson:2.8.0'
 }

@@ -159,9 +159,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-        if(!timerThread.isInterrupted())
+        if (timerThread.isAlive())
             timerThread.interrupt();
-        System.exit(0);
+
+        super.onDestroy();
     }
 }

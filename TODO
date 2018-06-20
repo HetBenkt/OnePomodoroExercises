@@ -1,5 +1,4 @@
-- Clean sonar issues
-- Exercises: images, description, colorcodes
+- Exercises: images, description, color-codes
 - settings activity
  -> 'keep screen on' option
  -> clean settings on exit (like current date)
