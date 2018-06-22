@@ -6,7 +6,7 @@
       "id": 1,
       "title": "Day 1",
       "description": "Start of the 4 days exercises!",
-      "date": "2018-6-19",
+      "date": "2018-6-24",
       "exercises": [
         -2,
         4,
@@ -21,7 +21,7 @@
         57,
         70,
         88,
-        89,
+        67,
         -3
       ]
     },
@@ -29,7 +29,7 @@
       "id": 2,
       "title": "Day 2",
       "description": "Almost half way!",
-      "date": "2018-6-20",
+      "date": "2018-6-25",
       "exercises": [
         -2,
         5,
@@ -52,7 +52,7 @@
       "id": 3,
       "title": "Day 3",
       "description": "50% done...great work!",
-      "date": "2018-6-21",
+      "date": "2018-6-26",
       "exercises": [
         -2,
         4,
@@ -75,7 +75,7 @@
       "id": 4,
       "title": "Day 4",
       "description": "Finish the sequence as a pro!",
-      "date": "2018-6-22",
+      "date": "2018-6-27",
       "exercises": [
         -2,
         6,
@@ -98,7 +98,7 @@
       "id": 5,
       "title": "Day 5",
       "description": "Your day off as earned!",
-      "date": "2018-6-23",
+      "date": "2018-6-28",
       "exercises": [
         -1
       ]
@@ -166,7 +166,7 @@
       "name": "Burpees easy",
       "description": "",
       "category": 3,
-      "duration": 12,
+      "duration": 13,
       "steps": "times"
     },
     {
@@ -174,7 +174,7 @@
       "name": "Crunches crossed-arms",
       "description": "",
       "category": 3,
-      "duration": 30,
+      "duration": 32,
       "steps": "times"
     },
     {
@@ -182,7 +182,7 @@
       "name": "Crunches long-arms",
       "description": "",
       "category": 3,
-      "duration": 16,
+      "duration": 18,
       "steps": "times"
     },
     {
@@ -222,7 +222,7 @@
       "name": "Jumping jacks",
       "description": "",
       "category": 1,
-      "duration": 70,
+      "duration": 72,
       "steps": "times"
     },
     {
@@ -319,6 +319,14 @@
       "description": "",
       "category": 3,
       "duration": 44,
+      "steps": "times"
+    },
+    {
+      "id": 67,
+      "name": "Single calf raise left/right",
+      "description": "",
+      "category": 1,
+      "duration": 20,
       "steps": "times"
     },
     {
