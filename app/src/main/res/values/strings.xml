@@ -3,11 +3,9 @@
     <string name="settings">Settings</string>
     <string name="header">Header</string>
     <string name="subtext">Subtext</string>
-    <string name="start">Start</string>
     <string name="timer">Timer</string>
     <string name="dayTitle">DayTitle</string>
     <string name="dayDescription">DayDescription</string>
     <string name="dayDate">DayDate</string>
     <string name="done">Done</string>
-    <string name="exit">X</string>
 </resources>
