@@ -6,7 +6,7 @@
       "id": 1,
       "title": "Day 1",
       "description": "Start of the 4 days exercises!",
-      "date": "2018-6-24",
+      "date": "2018-6-29",
       "exercises": [
         -2,
         4,
@@ -19,9 +19,9 @@
         44,
         52,
         57,
+        67,
         70,
         88,
-        67,
         -3
       ]
     },
@@ -29,7 +29,7 @@
       "id": 2,
       "title": "Day 2",
       "description": "Almost half way!",
-      "date": "2018-6-25",
+      "date": "2018-6-30",
       "exercises": [
         -2,
         5,
@@ -52,7 +52,7 @@
       "id": 3,
       "title": "Day 3",
       "description": "50% done...great work!",
-      "date": "2018-6-26",
+      "date": "2018-7-1",
       "exercises": [
         -2,
         4,
@@ -75,7 +75,7 @@
       "id": 4,
       "title": "Day 4",
       "description": "Finish the sequence as a pro!",
-      "date": "2018-6-27",
+      "date": "2018-7-2",
       "exercises": [
         -2,
         6,
@@ -98,7 +98,7 @@
       "id": 5,
       "title": "Day 5",
       "description": "Your day off as earned!",
-      "date": "2018-6-28",
+      "date": "2018-7-3",
       "exercises": [
         -1
       ]
@@ -174,7 +174,7 @@
       "name": "Crunches crossed-arms",
       "description": "",
       "category": 3,
-      "duration": 32,
+      "duration": 34,
       "steps": "times"
     },
     {
@@ -302,7 +302,7 @@
       "name": "Push-ups incline",
       "description": "",
       "category": 3,
-      "duration": 16,
+      "duration": 18,
       "steps": "times"
     },
     {
@@ -334,7 +334,7 @@
       "name": "Sit-ups",
       "description": "",
       "category": 3,
-      "duration": 20,
+      "duration": 22,
       "steps": "times"
     },
     {
@@ -374,7 +374,7 @@
       "name": "Wallclimbing",
       "description": "",
       "category": 1,
-      "duration": 42,
+      "duration": 44,
       "steps": "times"
     },
     {
@@ -382,7 +382,7 @@
       "name": "Wallsit",
       "description": "",
       "category": 1,
-      "duration": 40,
+      "duration": 45,
       "steps": "sec"
     }
   ]
