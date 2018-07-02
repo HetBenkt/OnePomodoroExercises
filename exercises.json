@@ -6,7 +6,7 @@
       "id": 1,
       "title": "Day 1",
       "description": "Start of the 4 days exercises!",
-      "date": "2018-6-29",
+      "date": "2018-7-4",
       "exercises": [
         -2,
         4,
@@ -29,7 +29,7 @@
       "id": 2,
       "title": "Day 2",
       "description": "Almost half way!",
-      "date": "2018-6-30",
+      "date": "2018-7-5",
       "exercises": [
         -2,
         5,
@@ -52,7 +52,7 @@
       "id": 3,
       "title": "Day 3",
       "description": "50% done...great work!",
-      "date": "2018-7-1",
+      "date": "2018-7-6",
       "exercises": [
         -2,
         4,
@@ -75,7 +75,7 @@
       "id": 4,
       "title": "Day 4",
       "description": "Finish the sequence as a pro!",
-      "date": "2018-7-2",
+      "date": "2018-7-7",
       "exercises": [
         -2,
         6,
@@ -98,7 +98,7 @@
       "id": 5,
       "title": "Day 5",
       "description": "Your day off as earned!",
-      "date": "2018-7-3",
+      "date": "2018-7-8",
       "exercises": [
         -1
       ]
@@ -318,7 +318,7 @@
       "name": "Russian twist",
       "description": "",
       "category": 3,
-      "duration": 44,
+      "duration": 46,
       "steps": "times"
     },
     {
@@ -374,7 +374,7 @@
       "name": "Wallclimbing",
       "description": "",
       "category": 1,
-      "duration": 44,
+      "duration": 46,
       "steps": "times"
     },
     {
