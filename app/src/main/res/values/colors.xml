@@ -7,6 +7,6 @@
     <color name="rowBackgroundDone">#8BB14C</color>
     <color name="mainBackground">#373D4A</color>
     <color name="timerButton">#8BB14C</color>
-    <color name="infoBackground">#EB4C38</color>
+    <color name="infoBackground">#eb4c38</color>
     <color name="settingButton">#D8D8D8</color>
 </resources>

@@ -1,26 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:background="@color/rowBackground"
-              android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-            android:text="@string/header"
-            android:background="#F7B733"
-            android:textColor="@color/mainText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/header"
-            android:textSize="30sp"/>
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@color/infoBackground"
+            android:id="@+id/icon"
+            android:layout_weight="1"/>
 
-    <TextView
-            android:text="@string/subtext"
-            android:background="#F7B733"
-            android:textColor="@color/subText"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/subtext"
-            android:textSize="24sp"
-            android:fontFamily="serif"/>
+            android:layout_weight="1">
+
+        <TextView
+                android:text="@string/header"
+                android:background="#F7B733"
+                android:textColor="@color/mainText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/header"
+                android:textSize="26sp"/>
+
+        <TextView
+                android:text="@string/subtext"
+                android:background="#F7B733"
+                android:textColor="@color/subText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/subtext"
+                android:textSize="20sp"/>
+        <TextView
+                android:background="#F7B733"
+                android:textColor="@color/subText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/description"
+                android:textSize="10sp"/>
+
+    </LinearLayout>
+
 </LinearLayout>

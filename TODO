@@ -1,10 +1,13 @@
-- Exercises: images, description, color-codes
+- Exercises: description, color-codes
 - firebase json db
  -> https://github.com/jgilfelt/android-sqlite-asset-helper/tree/master/samples/database-v1/src/main
  -> https://sqliteonline.com/#
+ -> https://jqplay.org/
 - settings activity
  -> 'keep screen on' option
  -> clean settings on exit (like current date)
 - Gradle to Maven
 - cache the data with date-change update
 
+C:\Users\<USER>\AppData\Local\Android\Sdk\emulator>emulator.exe -list-avds
+C:\Users\<USER>\AppData\Local\Android\Sdk\emulator>emulator.exe -avd <AVD_NAME> -dns-server 8.8.8.8
