@@ -9,7 +9,6 @@
       "date": "2018-7-4",
       "exercises": [
         -2,
-        4,
         15,
         18,
         19,
@@ -18,10 +17,11 @@
         39,
         44,
         52,
-        57,
         67,
         70,
-        88,
+        104,
+        107,
+        109,
         -3
       ]
     },
@@ -34,17 +34,17 @@
         -2,
         5,
         10,
-        17,
         25,
         29,
         38,
         49,
-        54,
         58,
         66,
         71,
         84,
-        86,
+        101,
+        103,
+        106,
         -4
       ]
     },
@@ -57,17 +57,17 @@
         -2,
         4,
         16,
-        18,
         19,
-        22,
         34,
-        39,
         46,
         52,
         57,
         76,
         88,
         89,
+        103,
+        106,
+        110,
         -3
       ]
     },
@@ -79,18 +79,18 @@
       "exercises": [
         -2,
         6,
-        10,
         17,
         25,
         29,
         38,
-        49,
         54,
         58,
         66,
         71,
-        84,
         86,
+        102,
+        105,
+        108,
         -4
       ]
     },
@@ -164,7 +164,7 @@
     {
       "id": 10,
       "name": "Burpees easy",
-      "description": "Start standing straight with your arms staight up in the air. squat down; put your hands on the ground and put your feet backwards. Do a push-up and get back in start position",
+      "description": "Start standing straight with your arms straight up in the air. squat down; put your hands on the ground and put your feet backwards. Do a push-up and get back in start position",
       "category": 3,
       "duration": 13,
       "steps": "times"
@@ -172,7 +172,7 @@
     {
       "id": 15,
       "name": "Crunches crossed-arms",
-      "description": "",
+      "description": "Lay flat on the floor and bend your knee; feet flat on the ground. Cross your arms on your chest. Span flexors and lift your head and shoulders in 30 degree angle",
       "category": 3,
       "duration": 34,
       "steps": "times"
@@ -180,7 +180,7 @@
     {
       "id": 16,
       "name": "Crunches long-arms",
-      "description": "",
+      "description": "Lay flat on the floor and bend your knee; feet flat on the ground. Left your arms above your head. Span flexors and lift upper body in 30 degree angle. Hold for 2 sec. and get back in start position",
       "category": 3,
       "duration": 18,
       "steps": "times"
@@ -384,6 +384,86 @@
       "category": 1,
       "duration": 45,
       "steps": "sec"
+    },
+    {
+      "id": 101,
+      "name": "DB Curls sitting",
+      "description": "",
+      "category": 1,
+      "duration": 14,
+      "steps": "times"
+    },
+    {
+      "id": 102,
+      "name": "DB Curls standing",
+      "description": "",
+      "category": 1,
+      "duration": 14,
+      "steps": "times"
+    },
+    {
+      "id": 103,
+      "name": "DB Curls concentration left/right",
+      "description": "",
+      "category": 1,
+      "duration": 6,
+      "steps": "times"
+    },
+    {
+      "id": 104,
+      "name": "DB One arm swing left/right",
+      "description": "",
+      "category": 1,
+      "duration": 6,
+      "steps": "times"
+    },
+    {
+      "id": 105,
+      "name": "DB Hammer",
+      "description": "",
+      "category": 1,
+      "duration": 10,
+      "steps": "times"
+    },
+    {
+      "id":106,
+      "name": "DB Flyes",
+      "description": "",
+      "category": 1,
+      "duration": 8,
+      "steps": "times"
+    },
+    {
+      "id": 107,
+      "name": "DB Tricep extension",
+      "description": "",
+      "category": 1,
+      "duration": 8,
+      "steps": "times"
+    },
+    {
+      "id": 108,
+      "name": "DB Chek press",
+      "description": "",
+      "category": 1,
+      "duration": 6,
+      "steps": "times"
+    },
+    {
+      "id": 109,
+      "name": "DB Front ups left/right",
+      "description": "",
+      "category": 1,
+      "duration": 4,
+      "steps": "times"
+    },
+    {
+      "id": 110,
+      "name": "DB Seated press",
+      "description": "",
+      "category": 1,
+      "duration": 10,
+      "steps": "times"
     }
   ]
 }
