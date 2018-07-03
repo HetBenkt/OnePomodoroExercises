@@ -1,4 +1,5 @@
 - Exercises: description, color-codes
+ -> Image location from json is better and flexible!
 - firebase json db
  -> https://github.com/jgilfelt/android-sqlite-asset-helper/tree/master/samples/database-v1/src/main
  -> https://sqliteonline.com/#
