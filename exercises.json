@@ -6,7 +6,7 @@
       "id": 1,
       "title": "Day 1",
       "description": "Start of the 4 days exercises!",
-      "date": "2018-7-4",
+      "date": "2018-7-9",
       "exercises": [
         -2,
         15,
@@ -29,7 +29,7 @@
       "id": 2,
       "title": "Day 2",
       "description": "Almost half way!",
-      "date": "2018-7-5",
+      "date": "2018-7-10",
       "exercises": [
         -2,
         5,
@@ -52,7 +52,7 @@
       "id": 3,
       "title": "Day 3",
       "description": "50% done...great work!",
-      "date": "2018-7-6",
+      "date": "2018-7-11",
       "exercises": [
         -2,
         4,
@@ -75,7 +75,7 @@
       "id": 4,
       "title": "Day 4",
       "description": "Finish the sequence as a pro!",
-      "date": "2018-7-7",
+      "date": "2018-7-12",
       "exercises": [
         -2,
         6,
@@ -98,7 +98,7 @@
       "id": 5,
       "title": "Day 5",
       "description": "Your day off as earned!",
-      "date": "2018-7-8",
+      "date": "2018-7-13",
       "exercises": [
         -1
       ]
@@ -166,7 +166,7 @@
       "name": "Burpees easy",
       "description": "Start standing straight with your arms straight up in the air. squat down; put your hands on the ground and put your feet backwards. Do a push-up and get back in start position",
       "category": 3,
-      "duration": 13,
+      "duration": 14,
       "steps": "times"
     },
     {
@@ -222,7 +222,7 @@
       "name": "Jumping jacks",
       "description": "",
       "category": 1,
-      "duration": 72,
+      "duration": 74,
       "steps": "times"
     },
     {
@@ -262,7 +262,7 @@
       "name": "Plank",
       "description": "",
       "category": 1,
-      "duration": 70,
+      "duration": 75,
       "steps": "sec"
     },
     {
@@ -270,7 +270,7 @@
       "name": "Plank side left/right",
       "description": "",
       "category": 1,
-      "duration": 60,
+      "duration": 70,
       "steps": "sec"
     },
     {
@@ -278,7 +278,7 @@
       "name": "Plank straight-arms",
       "description": "",
       "category": 1,
-      "duration": 70,
+      "duration": 75,
       "steps": "sec"
     },
     {
@@ -326,7 +326,7 @@
       "name": "Single calf raise left/right",
       "description": "",
       "category": 1,
-      "duration": 20,
+      "duration": 24,
       "steps": "times"
     },
     {
@@ -390,24 +390,24 @@
       "name": "DB Curls sitting",
       "description": "",
       "category": 1,
-      "duration": 14,
-      "steps": "times"
+      "duration": 8,
+      "steps": "x 3 times"
     },
     {
       "id": 102,
       "name": "DB Curls standing",
       "description": "",
       "category": 1,
-      "duration": 14,
-      "steps": "times"
+      "duration": 8,
+      "steps": "x 3 times"
     },
     {
       "id": 103,
       "name": "DB Curls concentration left/right",
       "description": "",
       "category": 1,
-      "duration": 6,
-      "steps": "times"
+      "duration": 8,
+      "steps": "x 3 times"
     },
     {
       "id": 104,
@@ -415,39 +415,39 @@
       "description": "",
       "category": 1,
       "duration": 6,
-      "steps": "times"
+      "steps": "x 3 times"
     },
     {
       "id": 105,
       "name": "DB Hammer",
       "description": "",
       "category": 1,
-      "duration": 10,
-      "steps": "times"
+      "duration": 6,
+      "steps": "x 3 times"
     },
     {
       "id":106,
       "name": "DB Flyes",
       "description": "",
       "category": 1,
-      "duration": 8,
-      "steps": "times"
+      "duration": 4,
+      "steps": "x 3 times"
     },
     {
       "id": 107,
       "name": "DB Tricep extension",
       "description": "",
       "category": 1,
-      "duration": 8,
-      "steps": "times"
+      "duration": 6,
+      "steps": "x 3 times"
     },
     {
       "id": 108,
       "name": "DB Chek press",
       "description": "",
       "category": 1,
-      "duration": 6,
-      "steps": "times"
+      "duration": 4,
+      "steps": "x 3 times"
     },
     {
       "id": 109,
@@ -455,15 +455,15 @@
       "description": "",
       "category": 1,
       "duration": 4,
-      "steps": "times"
+      "steps": "x 3 times"
     },
     {
       "id": 110,
       "name": "DB Seated press",
       "description": "",
       "category": 1,
-      "duration": 10,
-      "steps": "times"
+      "duration": 8,
+      "steps": "x 3 times"
     }
   ]
 }
