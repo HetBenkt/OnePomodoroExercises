@@ -18,7 +18,7 @@ public class Data {
 
     public Exercise getExercise(int exerciseId) {
         for (Exercise exercise : exercises) {
-            if (exercise.getId() == exerciseId)
+            if (exercise.getExcelrow() == exerciseId)
                 return exercise;
         }
         return null;

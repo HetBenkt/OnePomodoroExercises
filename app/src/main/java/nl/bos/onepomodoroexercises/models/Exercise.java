@@ -6,11 +6,15 @@ import lombok.Data;
 public class Exercise {
     //from json
     private int id;
+    private int excelrow;
     private String name;
     private String description;
-    private int category;
-    private int duration;
-    private String steps;
+    private String image;
+    private int weight;
+    private String category;
+    private int sets;
+    private int reps;
+    private String units;
 
     //non json
     private boolean done;
