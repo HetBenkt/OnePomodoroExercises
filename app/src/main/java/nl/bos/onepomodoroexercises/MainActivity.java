@@ -3,7 +3,6 @@ package nl.bos.onepomodoroexercises;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -22,8 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import nl.bos.onepomodoroexercises.models.Exercise;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -127,13 +124,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 else
                     timer.setText(String.format("-%02d:%02d", -(countDownTimer / ONE_MINUTE), -(countDownTimer % ONE_MINUTE)));
                 countDownTimer--;
-                if (countDownTimer == (25 * ONE_MINUTE) + 2 || countDownTimer == (25 * ONE_MINUTE) + 1 || countDownTimer == (25 * ONE_MINUTE))
+                if ((countDownTimer == (25 * ONE_MINUTE) + 2 || countDownTimer == (25 * ONE_MINUTE) + 1 || countDownTimer == (25 * ONE_MINUTE)) || (countDownTimer == 2 || countDownTimer == 1 || countDownTimer == 0))
                     tmrRun.start();
-                if (countDownTimer == 2 || countDownTimer == 1 || countDownTimer == 0)
-                    tmrRun.start();
-                if (countDownTimer == ONE_MINUTE - 1)
-                    tmrHurry.start();
-                if (countDownTimer < 0 && countDownTimer % ONE_MINUTE == 0)
+                if ((countDownTimer == ONE_MINUTE - 1) || (countDownTimer < 0 && countDownTimer % ONE_MINUTE == 0))
                     tmrHurry.start();
                 if (countDownTimer == (25 * ONE_MINUTE) - 1 || countDownTimer == -1)
                     tmrStart.start();

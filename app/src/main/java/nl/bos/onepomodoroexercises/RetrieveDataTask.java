@@ -10,16 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import nl.bos.onepomodoroexercises.models.Data;
 import nl.bos.onepomodoroexercises.models.Day;
 import nl.bos.onepomodoroexercises.models.Exercise;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.ParseException;
@@ -44,30 +40,19 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
 
     @Override
     protected JsonObject doInBackground(String... urls) {
-        JsonObject result = null;
+        Database dbCon = Database.getDbCon();
 
-        URL json = null;
-        try {
-            json = new URL(urls[0]);
-        } catch (MalformedURLException e) {
-            Log.e(TAG, e.getMessage());
-        }
+        JsonObject resultDB = new JsonObject();
 
-        if(json != null) {
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(json.openStream()))) {
-                StringBuilder jsonString = new StringBuilder();
-                String line;
-                while ((line = in.readLine()) != null) {
-                    jsonString.append(line);
-                }
-                result = new JsonParser().parse(jsonString.toString()).getAsJsonObject();
-                Log.i(TAG, String.valueOf(result));
-            } catch (java.io.IOException e) {
-                Log.e(TAG, e.getMessage());
-            }
-        }
+        resultDB.addProperty("appName", "One Pomodoro Exercises");
 
-        return result;
+        JsonArray daysResult = dbCon.getDays();
+        resultDB.add("days", daysResult);
+
+        JsonArray exercisesResult = dbCon.getExercises();
+        resultDB.add("exercises", exercisesResult);
+
+        return resultDB;
     }
 
     @Override
@@ -117,14 +102,14 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
 
     private void handleDayInfo(Day currentDay) {
         TextView dayTitle = activity.findViewById(R.id.txtDayTitle);
-        dayTitle.setText(currentDay.getTitle());
+        dayTitle.setText(currentDay.getTitle().trim());
         TextView dayDescription = activity.findViewById(R.id.txtDayDescription);
-        dayDescription.setText(currentDay.getDescription());
+        dayDescription.setText(currentDay.getDescription().trim());
 
         SimpleDateFormat dateFormatter = new SimpleDateFormat("dd MMM yyyy");
         DateFormat df = new SimpleDateFormat("yyyy-M-d");
         try {
-            Date startDate = df.parse(currentDay.getDate());
+            Date startDate = df.parse(currentDay.getDate().trim());
             TextView dayDate = activity.findViewById(R.id.txtDayDate);
             dayDate.setText(dateFormatter.format(startDate));
         } catch (ParseException e) {
@@ -137,7 +122,7 @@ class RetrieveDataTask extends AsyncTask<String, Void, JsonObject> {
         String caller = activity.getIntent().getStringExtra("caller");
         Log.i(TAG, String.format("Caller is %s", caller));
 
-        if(caller !=  null) {
+        if (caller != null) {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
             result = sharedPref.getString("selected_date", "");
         } else {

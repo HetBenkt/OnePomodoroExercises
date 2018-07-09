@@ -2,6 +2,7 @@ package nl.bos.onepomodoroexercises;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ExerciseAdapter extends BaseAdapter {
+    private static final String TAG = ExerciseAdapter.class.getSimpleName();
 
     private final LayoutInflater inflater;
     private List<Exercise> exercises = new ArrayList<>();
@@ -55,7 +57,7 @@ class ExerciseAdapter extends BaseAdapter {
             Drawable d = Drawable.createFromStream(ims, null);
             icon.setImageDrawable(d);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, e.getMessage());
         }
 
         TextView header = view.findViewById(R.id.header);
@@ -85,7 +87,7 @@ class ExerciseAdapter extends BaseAdapter {
     private String getExerciseIconName(Exercise exercise) {
         String result = "";
 
-        switch (exercise.getName()) {
+        switch (exercise.getName().trim()) {
             case "Bird-dog":
                 result = "bird_dog";
                 break;

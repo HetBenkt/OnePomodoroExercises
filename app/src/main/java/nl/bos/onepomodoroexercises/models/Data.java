@@ -10,7 +10,7 @@ public class Data {
 
     public Day getCurrentDay(String today) {
         for (Day day : days) {
-            if (day.getDate().equals(today))
+            if (day.getDate().trim().equals(today))
                 return day;
         }
         return null;

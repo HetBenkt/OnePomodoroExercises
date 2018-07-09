@@ -1,9 +1,9 @@
+- Credential interface for passwords
+- elephantsql!!
+- Local database that is in synch with the internet database
+ -> also saving settings in the database
 - Exercises: description, color-codes
  -> Image location from json is better and flexible!
-- firebase json db
- -> https://github.com/jgilfelt/android-sqlite-asset-helper/tree/master/samples/database-v1/src/main
- -> https://sqliteonline.com/#
- -> https://jqplay.org/
 - settings activity
  -> 'keep screen on' option
  -> clean settings on exit (like current date)
