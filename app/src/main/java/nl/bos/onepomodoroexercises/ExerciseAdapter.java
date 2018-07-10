@@ -60,6 +60,13 @@ class ExerciseAdapter extends BaseAdapter {
             Log.e(TAG, e.getMessage());
         }
 
+        TextView category = view.findViewById(R.id.category);
+        setColorForCategory(category, exercise.getCategory().trim());
+
+        TextView weight = view.findViewById(R.id.weight);
+        setColorForWeight(weight, exercise.getWeight());
+
+
         TextView header = view.findViewById(R.id.header);
         header.setText(String.format("%s", exercise.getName()));
         if (exercise.isDone())
@@ -82,6 +89,49 @@ class ExerciseAdapter extends BaseAdapter {
             description.setBackgroundResource(R.color.rowBackgroundToDo);
 
         return view;
+    }
+
+    private void setColorForWeight(TextView textView, int weight1) {
+        switch (weight1) {
+            case 0:
+                textView.setBackgroundResource(R.color.rowWeight0);
+                break;
+            case 1:
+                textView.setBackgroundResource(R.color.rowWeight1);
+                break;
+            case 2:
+                textView.setBackgroundResource(R.color.rowWeight2);
+                break;
+            case 3:
+                textView.setBackgroundResource(R.color.rowWeight3);
+                break;
+            default:
+                textView.setBackgroundResource(R.color.mainText);
+                break;
+        }
+    }
+
+    private void setColorForCategory(TextView textView, String category) {
+        switch (category) {
+            case "FREE":
+                textView.setBackgroundResource(R.color.rowCategoryFree);
+                break;
+            case "WARMING-UP":
+                textView.setBackgroundResource(R.color.rowCategoryWarmingUp);
+                break;
+            case "COOLING-DOWN":
+                textView.setBackgroundResource(R.color.rowCategoryCoolingDown);
+                break;
+            case "30 days":
+                textView.setBackgroundResource(R.color.rowCategory30Days);
+                break;
+            case "Dumbbells":
+                textView.setBackgroundResource(R.color.rowCategoryDumbbells);
+                break;
+            default:
+                textView.setBackgroundResource(R.color.mainText);
+                break;
+        }
     }
 
     void updateResults(List<Exercise> exercises) {

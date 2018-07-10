@@ -10,7 +10,14 @@
             android:layout_height="match_parent"
             app:srcCompat="@color/infoBackground"
             android:id="@+id/icon"
-            android:layout_weight="1"/>
+            android:layout_weight="0.95"/>
+    <TextView
+            android:background="@color/mainText"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/category"
+            android:layout_weight="0.05"
+            />
 
     <LinearLayout
             android:orientation="vertical"
@@ -42,6 +49,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/description"
                 android:textSize="11sp"/>
+        <TextView
+                android:background="@color/mainText"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:id="@+id/weight"
+                />
 
     </LinearLayout>
 

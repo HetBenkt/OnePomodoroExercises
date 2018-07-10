@@ -9,4 +9,14 @@
     <color name="timerButton">#8BB14C</color>
     <color name="infoBackground">#eb4c38</color>
     <color name="settingButton">#D8D8D8</color>
+    <color name="rowCategoryFree">#16ef2f</color>
+    <color name="rowCategoryWarmingUp">#ef9d17</color>
+    <color name="rowCategoryCoolingDown">#1666ef</color>
+    <color name="rowCategory30Days">#ef16d9</color>
+    <color name="rowCategoryDumbbells">#ef164f</color>
+    <color name="rowWeight0">#16ef2f</color>
+    <color name="rowWeight1">#e6e600</color>
+    <color name="rowWeight2">#ef9d17</color>
+    <color name="rowWeight3">#ef164f</color>
+
 </resources>

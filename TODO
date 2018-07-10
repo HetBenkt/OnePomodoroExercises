@@ -1,6 +1,6 @@
 - Local database that is in synch with the internet database
  -> also saving settings in the database!
-- Exercises: description, color-codes and show other info like category and weight
+- Exercises: description
 - settings activity
  -> 'keep screen on' option
  -> clean settings on exit (like current date)
