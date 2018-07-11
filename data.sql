@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS days;
 DROP TABLE IF EXISTS exercises;
+DROP TABLE IF EXISTS settings;
 
 CREATE TABLE exercises (
   id              SERIAL    PRIMARY KEY UNIQUE  NOT NULL,
@@ -22,6 +23,15 @@ CREATE TABLE days (
   exercises       INT[]                         NOT NULL
 );
 
+CREATE TABLE settings (
+  id              SERIAL    PRIMARY KEY UNIQUE  NOT NULL,
+  name            CHAR(32)                      NOT NULL,
+  value           CHAR(256)                     NOT NULL
+);
+
+INSERT INTO settings (name, value) VALUES ('json_url', 'https://raw.githubusercontent.com/HetBenkt/OnePomodoroExercises/master/exercises.json');
+INSERT INTO settings (name, value) VALUES ('timer_length', '25');
+
 INSERT INTO days (title, description, date, exercises) VALUES ('Day 1', 'Start of the 4 days exercises!', '2018-7-9', ARRAY[-2,15,18,19,22,34,39,44,52,67,70,104,107,109,-3]);
 INSERT INTO days (title, description, date, exercises) VALUES ('Day 2', 'Almost half way!', '2018-7-10', ARRAY[-2,5,10,25,29,38,49,58,66,71,84,101,103,106,-4]);
 INSERT INTO days (title, description, date, exercises) VALUES ('Day 3', '50% done...great work!', '2018-7-11', ARRAY[ -2,4,16,19,34,46,52,57,76,88,89,103,106,110,-3]);
@@ -37,7 +47,7 @@ INSERT INTO exercises (excelrow, name, description, image, weight, category, set
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (6, 'Bridge butt', '', 'td_action_img/butt_bridge/icon.png', 1, '30 days', 1, 24, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (10, 'Burpees easy', '', 'td_action_img/burpee/icon.png', 1, '30 days', 1, 14, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (15, 'Crunches crossed-arms', '', 'td_action_img/cross_arm_crunch/icon.png', 1, '30 days', 1, 34, 'times');
-INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (16, 'Crunches long-arms', '', 'td_action_img/long_arm_crunch/icon.png', 1, '30 days', 1, 34, 'times');
+INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (16, 'Crunches long-arms', '', 'td_action_img/long_arm_crunch/icon.png', 1, '30 days', 1, 16, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (17, 'Crunches reversed', '', 'td_action_img/reverse_crunch/icon.png', 1, '30 days', 1, 22, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (18, 'Donkeykick left/right', '', 'td_action_img/donkey_kick_right/icon.png', 1, '30 days', 1, 40, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (19, 'Firehydrant left/right', '', 'td_action_img/fire_hydrant_right/icon.png', 1, '30 days', 1, 20, 'times');
@@ -69,11 +79,16 @@ INSERT INTO exercises (excelrow, name, description, image, weight, category, set
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (103, 'Curls concentration left/right', '', 'exicons/4.png', 1, 'Dumbbells', 3, 8, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (104, 'One arm swing left/right', '', 'exicons/18.png', 1, 'Dumbbells', 3, 6, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (105, 'Hammer', '', 'exicons/3.png', 1, 'Dumbbells', 3, 6, 'times');
-INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (106, 'Flyes', '', 'exicons/11.png', 1, 'Dumbbells', 3, 4, 'times');
+INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (106, 'Flyes', '', 'exicons/11.png', 1, 'Dumbbells', 3, 6, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (107, 'Tricep extension', '', 'exicons/6.png', 1, 'Dumbbells', 3, 6, 'times');
-INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (108, 'Chek press', '', 'exicons/9.png', 1, 'Dumbbells', 3, 4, 'times');
-INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (109, 'Front ups left/right', '', 'exicons/26.png', 1, 'Dumbbells', 3, 4, 'times');
+INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (108, 'Chek press', '', 'exicons/10.png', 1, 'Dumbbells', 3, 4, 'times');
+INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (109, 'Front ups left/right', '', 'exicons/26.png', 1, 'Dumbbells', 3, 6, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (110, 'Seated press', '', 'exicons/9.png', 1, 'Dumbbells', 3, 8, 'times');
 
 SELECT * FROM days;
 SELECT * FROM exercises;
+SELECT * FROM settings;
+
+--SELECT name, sets || ' x ' || reps || ' ' || units, category, weight, image FROM exercises;
+--SELECT d.title, e.category, e.name, e.excelrow from exercises e, days d where e.excelrow = ANY(d.exercises)
+--SELECT title, unnest(exercises) FROM days;

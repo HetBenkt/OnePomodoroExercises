@@ -1,5 +1,7 @@
+- Pause the timer
+- Set the timer length
+
 - Local database that is in synch with the internet database
- -> also saving settings in the database!
 - Exercises: description
 - settings activity
  -> 'keep screen on' option
@@ -9,3 +11,4 @@
 
 C:\Users\<USER>\AppData\Local\Android\Sdk\emulator>emulator.exe -list-avds
 C:\Users\<USER>\AppData\Local\Android\Sdk\emulator>emulator.exe -avd <AVD_NAME> -dns-server 8.8.8.8
+git rm .\.idea\sonarlint\issuestore\index.pb -f

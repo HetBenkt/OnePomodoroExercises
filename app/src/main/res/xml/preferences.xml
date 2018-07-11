@@ -3,15 +3,9 @@
     <PreferenceCategory
             android:title="Settings"
             android:key="settings">
-        <EditTextPreference
-                android:defaultValue="https://raw.githubusercontent.com/HetBenkt/OnePomodoroExercises/master/exercises.json"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:title="JSON data"
-                android:key="edit_text_json"/>
         <nl.bos.onepomodoroexercises.preferences.DatePreference
                 android:key="selected_date"
-                android:title="Selected Date"
+                android:title="Selected date for data"
                 />
     </PreferenceCategory>
 </PreferenceScreen>

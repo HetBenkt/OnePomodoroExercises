@@ -22,92 +22,85 @@
                 android:id="@+id/exercises"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".7"
+                android:layout_weight=".8"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
-        <TableLayout
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp"
-                android:background="@color/infoBackground"
+        <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
+                android:background="@color/infoBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_height="0dp"
-                android:layout_weight=".3">
+                android:layout_weight=".2">
 
-            <TableRow
-                    android:layout_margin="4dp">
+            <TableLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                <ImageButton
-                        android:layout_gravity="left"
-                        android:id="@+id/btnStart"
-                        android:src="@drawable/ic_access_alarms"
-                        android:onClick="onStartClick"/>
-                <TextView
-                        android:text="@string/timer"
-                        android:layout_gravity="left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtTimer"
-                        android:textSize="36sp"
-                        android:layout_marginLeft="8dp"
-                        android:textColor="@color/rowBackgroundToDo"/>
-                <ImageButton
-                        android:layout_gravity="right"
-                        android:id="@+id/btnExit"
-                        android:src="@drawable/ic_power_settings_new"
-                        android:onClick="onExitClick"/>
-            </TableRow>
-            <TableRow
-                    android:layout_margin="4dp">
+                <TableRow>
+                    <ImageButton
+                            android:id="@+id/btnStart"
+                            android:src="@drawable/ic_access_alarms"
+                            android:onClick="onStartClick"/>
 
-                <TextView
-                        android:text="@string/dayTitle"
-                        android:layout_gravity="left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtDayTitle"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="8dp"
-                        android:textColor="@color/mainText"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtTimer"
+                            android:layout_marginLeft="8dp"
+                            android:textSize="36sp"
+                            android:textColor="@color/rowBackgroundToDo"/>
+                </TableRow>
 
-                <TextView
-                        android:text="@string/dayDate"
-                        android:layout_gravity="left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtDayDate"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="8dp"
-                        android:textColor="@color/mainText"/>
-            </TableRow>
-            <TableRow
-                    android:layout_margin="4dp">
-                <TextView
-                        android:text="@string/done"
-                        android:layout_gravity="left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtDone"
-                        android:textSize="14sp"
-                        android:layout_marginLeft="8dp"
-                        android:textColor="@color/rowBackgroundToDo"/>
-            </TableRow>
-            <TableRow
-                    android:layout_margin="4dp">
-                <TextView
-                        android:text="@string/dayDescription"
-                        android:layout_gravity="left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtDayDescription"
-                        android:textSize="14sp"
-                        android:layout_marginLeft="8dp"
-                        android:textColor="@color/mainText"/>
-            </TableRow>
-        </TableLayout>
+                <TableRow android:layout_marginLeft="8dp">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtDayTitle"
+                            android:textSize="18sp"
+                            android:textColor="@color/mainText"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtDayDate"
+                            android:textSize="18sp"
+                            android:textColor="@color/mainText"/>
+                </TableRow>
+
+                <TableRow android:layout_marginLeft="8dp">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtDone"
+                            android:textSize="14sp"
+                            android:textColor="@color/rowBackgroundToDo"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtDayDescription"
+                            android:textSize="14sp"
+                            android:textColor="@color/mainText"/>
+                </TableRow>
+            </TableLayout>
+
+            <ImageButton
+                    android:id="@+id/btnExit"
+                    android:src="@drawable/ic_power_settings_new"
+                    android:onClick="onExitClick"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+        </LinearLayout>
+
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
