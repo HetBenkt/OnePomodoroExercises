@@ -89,6 +89,6 @@ SELECT * FROM days;
 SELECT * FROM exercises;
 SELECT * FROM settings;
 
---SELECT name, sets || ' x ' || reps || ' ' || units, category, weight, image FROM exercises;
---SELECT d.title, e.category, e.name, e.excelrow from exercises e, days d where e.excelrow = ANY(d.exercises)
---SELECT title, unnest(exercises) FROM days;
+SELECT name, sets || ' x ' || reps || ' ' || units, category, weight, image FROM exercises;
+SELECT d.title, e.category, e.name, e.excelrow from exercises e, days d where e.excelrow = ANY(d.exercises)
+SELECT title, unnest(exercises) FROM days;
