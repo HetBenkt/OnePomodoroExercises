@@ -47,10 +47,9 @@
 
                 <TableRow>
                     <ImageButton
-                            android:id="@+id/btnStart"
+                            android:id="@+id/btnTimer"
                             android:src="@drawable/ic_access_alarms"
                             android:onClick="onStartClick"/>
-
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

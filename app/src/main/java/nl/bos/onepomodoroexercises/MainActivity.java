@@ -7,38 +7,32 @@ import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import nl.bos.onepomodoroexercises.models.Exercise;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, Runnable {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final int ONE_MINUTE = 60;
     private final List<Exercise> exercises = new ArrayList<>();
     private ExerciseAdapter adapter;
-    private TextView timer;
-    private Thread timerThread;
     private int countDownTimer = (25 * ONE_MINUTE) + 10;
     private int exercisesDone = 0;
     private MediaPlayer smsTone;
-    private MediaPlayer btnStart;
+    private MediaPlayer btnTimer;
     private MediaPlayer tmrRun;
     private MediaPlayer tmrHurry;
     private MediaPlayer tmrStart;
+    private boolean running = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.i(TAG, "onCreate...");
 
         smsTone = MediaPlayer.create(this, R.raw.sms_tone);
-        btnStart = MediaPlayer.create(this, R.raw.btn_click_sound);
+        btnTimer = MediaPlayer.create(this, R.raw.btn_click_sound);
         tmrRun = MediaPlayer.create(this, R.raw.tmr_beep_tone);
         tmrHurry = MediaPlayer.create(this, R.raw.tmr_beep_beep_beep);
         tmrStart = MediaPlayer.create(this, R.raw.tmr_beep);
@@ -58,8 +52,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             viewExercises.setOnItemClickListener(this);
             viewExercises.setOnItemLongClickListener(this);
 
-            timer = findViewById(R.id.txtTimer);
-            timerThread = new Thread(this);
 
             adapter = new ExerciseAdapter(this);
             viewExercises.setAdapter(adapter);
@@ -106,33 +98,43 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return false;
     }
 
-    public void onStartClick(View button) {
-        Log.i(TAG, String.format("Click on %s", button.getId()));
-        timerThread.start();
-        button.setEnabled(false);
-        btnStart.start();
+    private void runThread() {
+        new Thread() {
+            @Override
+            public void run() {
+                while (running) {
+                    try {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                updateTimerText();
+                            }
+                        });
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        Log.e(TAG, e.getMessage());
+                    }
+                }
+            }
+        }.start();
     }
 
-    @Override
-    public void run() {
-        final Handler handler = new Handler(Looper.getMainLooper());
-        final Runnable r = new Runnable() {
-            public void run() {
-                handler.postDelayed(this, 1000);
-                if (countDownTimer >= 0)
-                    timer.setText(String.format("%02d:%02d", countDownTimer / ONE_MINUTE, countDownTimer % ONE_MINUTE));
-                else
-                    timer.setText(String.format("-%02d:%02d", -(countDownTimer / ONE_MINUTE), -(countDownTimer % ONE_MINUTE)));
-                countDownTimer--;
-                if ((countDownTimer == (25 * ONE_MINUTE) + 2 || countDownTimer == (25 * ONE_MINUTE) + 1 || countDownTimer == (25 * ONE_MINUTE)) || (countDownTimer == 2 || countDownTimer == 1 || countDownTimer == 0))
-                    tmrRun.start();
-                if ((countDownTimer == ONE_MINUTE - 1) || (countDownTimer < 0 && countDownTimer % ONE_MINUTE == 0))
-                    tmrHurry.start();
-                if (countDownTimer == (25 * ONE_MINUTE) - 1 || countDownTimer == -1)
-                    tmrStart.start();
-            }
-        };
-        handler.postDelayed(r, 0);
+    private void updateTimerText() {
+        TextView timer = findViewById(R.id.txtTimer);
+
+        if (countDownTimer >= 0)
+            timer.setText(String.format("%02d:%02d", countDownTimer / ONE_MINUTE, countDownTimer % ONE_MINUTE));
+        else
+            timer.setText(String.format("-%02d:%02d", -(countDownTimer / ONE_MINUTE), -(countDownTimer % ONE_MINUTE)));
+
+        countDownTimer--;
+
+        if ((countDownTimer == (25 * ONE_MINUTE) + 2 || countDownTimer == (25 * ONE_MINUTE) + 1 || countDownTimer == (25 * ONE_MINUTE)) || (countDownTimer == 2 || countDownTimer == 1 || countDownTimer == 0))
+            tmrRun.start();
+        if ((countDownTimer == ONE_MINUTE - 1) || (countDownTimer < 0 && countDownTimer % ONE_MINUTE == 0))
+            tmrHurry.start();
+        if (countDownTimer == (25 * ONE_MINUTE) - 1 || countDownTimer == -1)
+            tmrStart.start();
     }
 
     @Override
@@ -157,14 +159,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void onExitClick(View button) {
         Log.i(TAG, String.format("Click on %s", button.getId()));
-        if (timerThread.isAlive() || !timerThread.isInterrupted())
-            timerThread.interrupt();
-
         System.exit(0);
     }
 
     @Override
     public void onBackPressed() {
         //Do nothing!
+    }
+
+    public void onStartClick(View view) {
+        ImageButton button = (ImageButton) view;
+        Log.i(TAG, String.format("Click on %s", button.getId()));
+
+        if(running) {
+            running = false;
+            button.setImageResource(R.drawable.ic_access_alarms);
+        }
+        else {
+            running = true;
+            runThread();
+            button.setImageResource(android.R.drawable.ic_media_pause);
+        }
+
+        btnTimer.start();
     }
 }
