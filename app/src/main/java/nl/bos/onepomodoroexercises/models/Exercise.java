@@ -1,8 +1,6 @@
 package nl.bos.onepomodoroexercises.models;
 
-import lombok.Data;
-
-@Data
+@lombok.Data
 public class Exercise {
     //from json
     private int id;

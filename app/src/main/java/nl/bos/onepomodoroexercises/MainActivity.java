@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private static final int ONE_MINUTE = 60;
     private final List<Exercise> exercises = new ArrayList<>();
     private ExerciseAdapter adapter;
-    private int countDownTimer = (25 * ONE_MINUTE) + 10;
     private int exercisesDone = 0;
     private MediaPlayer smsTone;
     private MediaPlayer btnTimer;
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private MediaPlayer tmrHurry;
     private MediaPlayer tmrStart;
     private boolean running = false;
+    private int countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         tmrHurry = MediaPlayer.create(this, R.raw.tmr_beep_beep_beep);
         tmrStart = MediaPlayer.create(this, R.raw.tmr_beep);
 
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        String timerLength = settings.getString("timer_length", "25");
+        countDownTimer = (Integer.parseInt(timerLength) * ONE_MINUTE) + 10;
+
         if (isOnline()) {
             setContentView(R.layout.activity_main);
 
@@ -55,9 +59,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             adapter = new ExerciseAdapter(this);
             viewExercises.setAdapter(adapter);
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-            String jsonSetting = settings.getString("edit_text_json", null);
-            new RetrieveDataTask(exercises, adapter, getApplicationContext(), this).execute(jsonSetting);
+            new RetrieveDataTask(exercises, adapter, getApplicationContext(), this).execute();
         } else {
             Toast toast = Toast.makeText(this, "No required internet connection available!", Toast.LENGTH_LONG);
             toast.show();
@@ -120,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void updateTimerText() {
+        
         TextView timer = findViewById(R.id.txtTimer);
 
         if (countDownTimer >= 0)

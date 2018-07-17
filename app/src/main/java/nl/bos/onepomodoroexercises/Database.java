@@ -90,18 +90,18 @@ public class Database {
         try {
             ResultSet rsExercises = query("select * from exercises");
             while (rsExercises.next()) {
-                JsonElement day = new JsonObject();
-                ((JsonObject) day).addProperty("id", rsExercises.getInt(1));
-                ((JsonObject) day).addProperty("excelrow", rsExercises.getInt(2));
-                ((JsonObject) day).addProperty("name", rsExercises.getString(3));
-                ((JsonObject) day).addProperty("description", rsExercises.getString(4));
-                ((JsonObject) day).addProperty("image", rsExercises.getString(5));
-                ((JsonObject) day).addProperty("weight", rsExercises.getInt(6));
-                ((JsonObject) day).addProperty("category", rsExercises.getString(7));
-                ((JsonObject) day).addProperty("sets", rsExercises.getInt(8));
-                ((JsonObject) day).addProperty("reps", rsExercises.getInt(9));
-                ((JsonObject) day).addProperty("units", rsExercises.getString(10));
-                exercises.add(day);
+                JsonElement exercise = new JsonObject();
+                ((JsonObject) exercise).addProperty("id", rsExercises.getInt(1));
+                ((JsonObject) exercise).addProperty("excelrow", rsExercises.getInt(2));
+                ((JsonObject) exercise).addProperty("name", rsExercises.getString(3));
+                ((JsonObject) exercise).addProperty("description", rsExercises.getString(4));
+                ((JsonObject) exercise).addProperty("image", rsExercises.getString(5));
+                ((JsonObject) exercise).addProperty("weight", rsExercises.getInt(6));
+                ((JsonObject) exercise).addProperty("category", rsExercises.getString(7));
+                ((JsonObject) exercise).addProperty("sets", rsExercises.getInt(8));
+                ((JsonObject) exercise).addProperty("reps", rsExercises.getInt(9));
+                ((JsonObject) exercise).addProperty("units", rsExercises.getString(10));
+                exercises.add(exercise);
             }
             rsExercises.close();
         } catch (SQLException e) {

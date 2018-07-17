@@ -23,25 +23,15 @@ CREATE TABLE days (
   exercises       INT[]                         NOT NULL
 );
 
-CREATE TABLE settings (
-  id              SERIAL    PRIMARY KEY UNIQUE  NOT NULL,
-  name            CHAR(32)                      NOT NULL,
-  value           CHAR(256)                     NOT NULL
-);
-
-INSERT INTO settings (name, value) VALUES ('json_url', 'https://raw.githubusercontent.com/HetBenkt/OnePomodoroExercises/master/exercises.json');
-INSERT INTO settings (name, value) VALUES ('timer_length', '25');
-
-INSERT INTO days (title, description, date, exercises) VALUES ('Day 1', 'Start of the 4 days exercises!', '2018-7-14', ARRAY[-2,15,18,19,22,34,39,44,52,67,70,104,107,109,-3]);
-INSERT INTO days (title, description, date, exercises) VALUES ('Day 2', 'Almost half way!', '2018-7-15', ARRAY[-2,5,10,25,29,38,49,58,66,71,84,101,103,106,-4]);
-INSERT INTO days (title, description, date, exercises) VALUES ('Day 3', '50% done...great work!', '2018-7-16', ARRAY[ -2,4,16,19,34,46,52,57,76,88,89,103,106,110,-3]);
-INSERT INTO days (title, description, date, exercises) VALUES ('Day 4', 'Finish the sequence as a pro!', '2018-7-17', ARRAY[-2,6,17,25,29,38,54,58,66,71,86,102,105,108,-4]);
-INSERT INTO days (title, description, date, exercises) VALUES ('Day 5', 'Your day off as earned!', '2018-7-18', ARRAY[-1]);
+INSERT INTO days (title, description, date, exercises) VALUES ('Day 1', 'Start of the 3 days exercises!', '2018-7-19', ARRAY[-2,4,15,18,19,22,34,39,44,52,57,67,70,76,103,104,107,109,-3]);
+INSERT INTO days (title, description, date, exercises) VALUES ('Day 2', 'Almost half way!', '2018-7-20'              , ARRAY[-2,5,10,16,25,29,46,49,52,58,66,71,84,88,101,103,106,110,-4]);
+INSERT INTO days (title, description, date, exercises) VALUES ('Day 3', 'Finish the sequence as a pro!', '2018-7-21' , ARRAY[-2,6,17,19,25,29,34,38,54,58,66,71,86,89,102,105,106,108,-3]);
+INSERT INTO days (title, description, date, exercises) VALUES ('Day 4', 'Your day off as earned!', '2018-7-22'       , ARRAY[-1]);
 
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (-1, 'NO EXCISES TODAY', '', 'td_action_img/empty/icon.png', 0, 'FREE', 0, 0, '');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (-2, 'Shoulders, arms, legs', '', 'td_action_img/empty/icon.png', 0, 'WARMING-UP', 1, 1, 'min');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (-3, 'ARMS', '', 'td_action_img/empty/icon.png', 0, 'COOLING-DOWN', 1, 1, 'min');
-INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (-4, 'LEGS', '', 'td_action_img/empty/icon.png', 0, 'COOLING-DOWN', 1, 1, 'min');
+INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (-4, 'LEGS & BEG', '', 'td_action_img/empty/icon.png', 0, 'COOLING-DOWN', 1, 1, 'min');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (4, 'Bird-dog', '', 'td_action_img/bird_dog/icon.png', 1, '30 days', 1, 50, 'times');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (5, 'Bridge', '', 'td_action_img/bridge/icon.png', 1, '30 days', 1, 65, 'sec');
 INSERT INTO exercises (excelrow, name, description, image, weight, category, sets, reps, units) VALUES (6, 'Bridge butt', '', 'td_action_img/butt_bridge/icon.png', 1, '30 days', 1, 24, 'times');
@@ -87,7 +77,6 @@ INSERT INTO exercises (excelrow, name, description, image, weight, category, set
 
 -- SELECT * FROM days;
 -- SELECT * FROM exercises;
--- SELECT * FROM settings;
 --
 -- SELECT name, sets || ' x ' || reps || ' ' || units, category, weight, image FROM exercises;
 -- SELECT d.title, e.category, e.name, e.excelrow from exercises e, days d where e.excelrow = ANY(d.exercises)
