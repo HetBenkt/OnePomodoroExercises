@@ -5,10 +5,15 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="Timer length"
+            android:summary="Set the lenght of the timer to use; 25 is default for 1 pomodoro"
             android:inputType="number"
             android:key="timer_length"/>
     <nl.bos.onepomodoroexercises.preferences.DatePreference
             android:key="selected_date"
-            android:title="Selected date for data"
+            android:title="Selected date"
+            android:summary="Selected a date for the data to show"
             />
+    <Preference android:title="Update local data"
+                android:key="@string/updateLocalData"
+                android:summary="Updates local data from remote database"></Preference>
 </PreferenceScreen>
