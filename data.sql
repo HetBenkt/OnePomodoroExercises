@@ -1,9 +1,8 @@
 DROP TABLE IF EXISTS days;
 DROP TABLE IF EXISTS exercises;
-DROP TABLE IF EXISTS settings;
 
 CREATE TABLE exercises (
-  id              SERIAL    PRIMARY KEY UNIQUE  NOT NULL,
+  id              SERIAL    PRIMARY KEY UNIQUE,
   excelrow        INT                           NOT NULL,
   name            CHAR(32)                      NOT NULL,
   description     CHAR(256)                     NOT NULL,
@@ -16,7 +15,7 @@ CREATE TABLE exercises (
 );
 
 CREATE TABLE days (
-  id              SERIAL    PRIMARY KEY UNIQUE  NOT NULL,
+  id              SERIAL    PRIMARY KEY UNIQUE,
   title           CHAR(32)                      NOT NULL,
   description     CHAR(256)                     NOT NULL,
   date            CHAR(16)                      NOT NULL,
