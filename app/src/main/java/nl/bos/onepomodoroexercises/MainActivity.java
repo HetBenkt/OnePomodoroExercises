@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private MediaPlayer tmrStart;
     private boolean running = false;
     private int countDownTimer;
+    private int timerLength;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         tmrStart = MediaPlayer.create(this, R.raw.tmr_beep);
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        String timerLength = settings.getString("timer_length", "25");
-        countDownTimer = (Integer.parseInt(timerLength) * ONE_MINUTE) + 10;
+        timerLength = Integer.parseInt(settings.getString("timer_length", "25")) * ONE_MINUTE;
+        countDownTimer = timerLength + 10;
 
         if (isOnline()) {
             setContentView(R.layout.activity_main);
@@ -132,11 +133,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         countDownTimer--;
 
-        if ((countDownTimer == (25 * ONE_MINUTE) + 2 || countDownTimer == (25 * ONE_MINUTE) + 1 || countDownTimer == (25 * ONE_MINUTE)) || (countDownTimer == 2 || countDownTimer == 1 || countDownTimer == 0))
+        if ((countDownTimer == (timerLength) + 2 || countDownTimer == (timerLength) + 1 || countDownTimer == (timerLength)) || (countDownTimer == 2 || countDownTimer == 1 || countDownTimer == 0))
             tmrRun.start();
         if ((countDownTimer == ONE_MINUTE - 1) || (countDownTimer < 0 && countDownTimer % ONE_MINUTE == 0))
             tmrHurry.start();
-        if (countDownTimer == (25 * ONE_MINUTE) - 1 || countDownTimer == -1)
+        if (countDownTimer == (timerLength) - 1 || countDownTimer == -1)
             tmrStart.start();
     }
 
