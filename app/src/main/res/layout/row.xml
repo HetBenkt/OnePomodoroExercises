@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/header"
-                android:textSize="24sp"/>
+                android:textSize="28sp"/>
 
         <TextView
                 android:text="@string/subtext"
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/subtext"
-                android:textSize="18sp"/>
+                android:textSize="22sp"/>
         <TextView
                 android:background="#F7B733"
                 android:textColor="@color/subText"
