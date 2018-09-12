@@ -22,10 +22,10 @@ CREATE TABLE days (
   exercises       INT[]                         NOT NULL
 );
 
-INSERT INTO days (title, description, date, exercises) VALUES ('Day 1', 'Start of the 3 days exercises!', '2018-9-11', ARRAY[-2,4,15,18,19,22,34,39,44,52,57,67,70,76,103,104,105,107,109,-3]);
-INSERT INTO days (title, description, date, exercises) VALUES ('Day 2', 'Almost half way!', '2018-9-12'              , ARRAY[-2,5,10,16,25,30,34,49,52,58,66,71,84,88,101,102,103,106,110,-4]);
-INSERT INTO days (title, description, date, exercises) VALUES ('Day 3', 'Finish the sequence as a pro!', '2018-9-13' , ARRAY[-2,6,17,19,25,29,38,46,54,58,66,71,86,89,101,102,105,106,108,-5]);
-INSERT INTO days (title, description, date, exercises) VALUES ('Day 4', 'Your day off as earned!', '2018-9-14'       , ARRAY[-1]);
+INSERT INTO days (title, description, date, exercises) VALUES ('Day 1', 'Start of the 3 days exercises!', '2018-9-14', ARRAY[-2,4,15,18,19,22,34,39,44,52,57,67,70,76,103,104,105,107,109,-3]);
+INSERT INTO days (title, description, date, exercises) VALUES ('Day 2', 'Almost half way!', '2018-9-15'              , ARRAY[-2,5,10,16,25,30,34,49,52,58,66,71,84,88,101,102,103,106,110,-4]);
+INSERT INTO days (title, description, date, exercises) VALUES ('Day 3', 'Finish the sequence as a pro!', '2018-9-16' , ARRAY[-2,6,17,19,25,29,38,46,54,58,66,71,86,89,101,102,105,106,108,-5]);
+INSERT INTO days (title, description, date, exercises) VALUES ('Day 4', 'Your day off as earned!', '2018-9-17'       , ARRAY[-1]);
 
 INSERT INTO exercises (excelrow, name, image, weight, category, sets, reps, units, description) VALUES (-1, 'NO EXCISES TODAY'            , 'td_action_img/empty/icon.png'                      , 0, 'FREE', 0, 0, '', 'Have a nice day! :)');
 INSERT INTO exercises (excelrow, name, image, weight, category, sets, reps, units, description) VALUES (-2, 'Shoulders, arms, legs'       , 'td_action_img/empty/icon.png'                      , 0, 'WARMING-UP', 1, 1, 'min', 'Roll the sholders; swing arms; lift legs and rotate body');
